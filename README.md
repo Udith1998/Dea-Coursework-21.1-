@@ -17,7 +17,7 @@
 
 
 ## About The Project
-Creating a website to reach their targets with the help of sustainability concept
+Developing a web-based application to manage Airline Service Process
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
