@@ -46,7 +46,7 @@ Developing a web-based application to manage Airline Service Process
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contact
-Chathuranga Rathnayaka : 
+Chathuranga Rathnayaka : https://github.com/Udith1998
 
 M.A.G.H.P. Mallawaarachchi : 
 
