@@ -34,7 +34,7 @@ Developing a web-based application to manage Airline Service Process
 
 ## Roadmap
 - [x] Setting Up the repo for the group
-- [x] Resource Gathering
+- [ ] Resource Gathering
 - [ ] Front page development
 - [ ] Sub page develpment
 - [ ] Designing a database and UML model diagram 
@@ -52,7 +52,14 @@ M.A.G.H.P. Mallawaarachchi :
 
 T.G.M. Seneka : 
 
-M.K.P.N Joanne  :  
+M.K.P.N Joanne  : 
+
+K.P.K.C Dilshan  :
+
+W.M.A Ihalagedara  :
 
 Project Link  :
+
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>
