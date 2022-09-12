@@ -1,5 +1,5 @@
-# Dea-Coursework-21.1-<div id="top"></div>
-<h1 align="center">Web-Coursework-21.1</h1>
+<div id="top"></div>
+<h1 align="center">Dea-Coursework-21.1</h1>
 <p align="center"> Developing a website which, is related to one of the Sustainable Development Goals </p>
 <details>
   <summary>Table of Contents</summary>
