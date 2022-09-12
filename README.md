@@ -34,7 +34,7 @@ Developing a web-based application to manage Airline Service Process
 
 ## Roadmap
 - [x] Setting Up the repo for the group
-- [] Resource Gathering
+- [ ] Resource Gathering
 - [] Front page development
 - [] Sub page develpment
 - [] Designing a database and UML model diagram 
