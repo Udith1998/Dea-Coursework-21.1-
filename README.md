@@ -26,29 +26,35 @@ Developing a web-based application to manage Airline Service Process
 * CSS
 * JavaScript
 * My sql
+* Java Servlet
+* JSP
+* Java Beans
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Roadmap
 - [x] Setting Up the repo for the group
-- [x] Resource Gathering
-- [x] Front page development
-- [x] Sub page develpment
+- [] Resource Gathering
+- [] Front page development
+- [] Sub page develpment
+- [] Designing a database and UML model diagram 
+- [] Programming of Java Server Pages 
+- [] Testing
+- [] Use of Design Patterns such as MVC 
+- [] Clear demonstrations of your prototype JSPs 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contact
-Chathuranga Rathnayaka : https://github.com/Udith1998
+Chathuranga Rathnayaka : 
 
-M.A.G.H.P. Mallawaarachchi : https://github.com/MAGHPMallawaarachchi
+M.A.G.H.P. Mallawaarachchi : 
 
-T.G.M. Seneka : https://github.com/tgmseneka
+T.G.M. Seneka : 
 
-N.W.H.S. Abeysekera : https://github.com/nwhsabeysekera
+M.K.P.N Joanne  :  
 
-M.K.P.N Joanne  :  https://github.com/MKPNJoanne
-
-Project Link:https://github.com/Udith1998/web-coursework-21.1-
+Project Link  :
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
