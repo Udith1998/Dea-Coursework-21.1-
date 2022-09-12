@@ -1,6 +1,6 @@
 <div id="top"></div>
 <h1 align="center">Dea-Coursework-21.1</h1>
-<p align="center"> Developing a website which, is related to one of the Sustainable Development Goals </p>
+<p align="center"> Developing a Enterprise Application which is related to Phoenix Airline PVT (LTD) </p>
 <details>
   <summary>Table of Contents</summary>
   <ol>
