@@ -50,7 +50,7 @@ Chathuranga Rathnayaka : https://github.com/Udith1998
 
 M.A.G.H.P. Mallawaarachchi : 
 
-T.G.M. Seneka : 
+T.G.M. Seneka : https://github.com/tgmseneka
 
 M.K.P.N Joanne  : 
 
