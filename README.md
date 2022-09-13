@@ -48,11 +48,11 @@ Developing a web-based application to manage Airline Service Process
 ## Contact
 Chathuranga Rathnayaka : https://github.com/Udith1998
 
-M.A.G.H.P. Mallawaarachchi : 
+M.A.G.H.P. Mallawaarachchi : https://github.com/MAGHPMallawaarachchi
 
 T.G.M. Seneka : https://github.com/tgmseneka
 
-M.K.P.N Joanne  : 
+M.K.P.N Joanne  : https://github.com/MKPNJoanne
 
 K.P.K.C Dilshan  :
 
