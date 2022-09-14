@@ -54,7 +54,7 @@ T.G.M. Seneka : https://github.com/tgmseneka
 
 M.K.P.N Joanne  : https://github.com/MKPNJoanne
 
-K.P.K.C Dilshan  :
+K.P.K.C Dilshan  : https://github.com/Chamith-Dilshan
 
 W.M.A Ihalagedara  :
 
