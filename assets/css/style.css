@@ -3,8 +3,8 @@
 :root {
     --main-color: #111F39;
     --white-color: #ffffff;
-    --black-color: #2B2540;
-    --black-color-opacity: #2b2540c4;
+    --black-color: #000000;
+    --black-color-opacity: #000000c4;
     --paragraph-color: #818090;
     --bg-color: #F3F6FD;
     --transition: .4s all ease-in-out;
@@ -2079,7 +2079,7 @@ section {
 =========================*/
 /* --Common Banner-- */
 #common_banner {
-    background-image: url('../img/banner/common-banner.png');
+    background-image: url('../img/banner/common-banner.jpg');
     padding: 200px 0 130px 0;
     background-repeat: no-repeat;
     background-size: cover;
@@ -4105,8 +4105,22 @@ textarea {
 
 #main_author_form .form-group {
     margin-bottom: 20px;
-    text-align: right;
+    /* text-align: right; */
 }
+
+#main_author_form .form-group small {
+    color: #dc3545;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+#main_author_form .form-group.error input {
+    border-color: #dc3545;
+}
+
+/* #main_author_form .form-field.success input {
+    border-color: var(--success-color);
+} */
 
 #main_author_form .form-group a {
     color: var(--paragraph-color);
@@ -4979,3 +4993,4 @@ textarea {
     visibility: visible;
     top: 50%
 }
+
