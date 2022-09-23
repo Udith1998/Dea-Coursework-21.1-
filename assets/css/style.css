@@ -1333,12 +1333,12 @@ section {
 }
 
 .copyright_area {
-    background-color: var(--bg-color);
+    background-color: #00255c;
     padding: 15px 0;
 }
 
 .copyright_left p {
-    color: var(--black-color);
+    color: var(--white-color);
     font-size: 14px;
     font-weight: 500;
 }
