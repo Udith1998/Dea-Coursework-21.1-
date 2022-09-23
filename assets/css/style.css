@@ -1275,6 +1275,7 @@ section {
     display: inline-flex;
     padding-bottom: 5px;
     font-weight: 500;
+    color: white;
 }
 
 .footer_inquery_area {
