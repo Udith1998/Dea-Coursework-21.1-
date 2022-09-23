@@ -5010,7 +5010,7 @@ textarea {
   grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
   align-items: center;
   justify-items: center;
-  background-color:#BED1CD;
+  background-color:#111f39;
 }
 
 main#carousel {
@@ -5034,7 +5034,7 @@ main#carousel {
   position: absolute;
   width: 300px;
   height: 300px;
-  background-color: white;
+  background-color: #111f39;
   --r: calc(var(--position) - var(--offset));
   --abs: max(calc(var(--r) * -1), var(--r));
   transition: all 0.4s linear;
