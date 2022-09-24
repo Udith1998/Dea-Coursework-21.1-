@@ -17,10 +17,9 @@
             String mobile = request.getParameter("mobile");
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            String cpassword = request.getParameter("confirm-password");
 
-            if(fname==""){
-                out.println("<font color=red>Please enter your name!</font><br>");
-            }
+               
 
             try{
                 Class.forName("com.mysql.jdbc.Driver");
@@ -48,7 +47,7 @@
                 }
 
             }catch(Exception e){
-  
+                out.println(e);
             }
         %>
 
