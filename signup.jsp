@@ -170,7 +170,7 @@
                             <h2>Create an account</h2>
                         </div>
                         <div class="common_author_form">
-                            <form action="newsignup.jsp" name="main_author_form" method="post" id="main_author_form">
+                            <form action="signup.jsp" name="main_author_form" method="post" id="main_author_form">
                                 
                                 <div class="form-group">
                                     <input type="text" name="fname" id="fname" class="form-control" placeholder="Your first name*" required="required"/>
@@ -220,7 +220,7 @@
                                 <div class="have_acount_area other_author_option">
                                     <div class="line_or">
                                     </div>
-                                    <p>Already have an account? <a href="login.html">Log in now</a></p>
+                                    <p>Already have an account? <a href="login.jsp">Log in now</a></p>
                                 </div>
                             </form>
                         </div>
