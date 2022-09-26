@@ -148,7 +148,7 @@ section {
 }
 
 .section_padding_top {
-    padding: 100px 0 0 0;
+    padding: 100px 0 100px 0;
 }
 
 .section_padding_bottom {
@@ -1263,7 +1263,7 @@ section {
 
 /* --Footer Area-- */
 #footer_area {
-   background-image: url("../img/banner/bg.JPG");
+    background-image: url("../img/banner/bg.JPG");
     padding: 100px 0px;
     background-position: center;
     background-repeat: no-repeat;
