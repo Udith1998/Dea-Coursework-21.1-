@@ -56,9 +56,9 @@ M.K.P.N Joanne  : https://github.com/MKPNJoanne
 
 K.P.K.C Dilshan  : https://github.com/Chamith-Dilshan
 
-W.M.A Ihalagedara  :
+W.M.A Ihalagedara  : https://github.com/malanasanka
 
-Project Link  :
+Project Link  : https://github.com/Udith1998/Dea-Coursework-21.1-
 
 
 
