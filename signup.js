@@ -21,7 +21,7 @@ const checkFirstName = () => {
     if (!isRequired(fname)) {
         showError(fnameEl, 'Please enter your first name.');
     } else if (!isBetween(fname.length, min, max)) {
-        showError(fnameEl, `First name must be between ${min} and ${max} characters.`);
+        showError(fnameEl, 'First name must be between ${min} and ${max} characters.');
     } else {
         showSuccess(fnameEl);
         valid = true;
@@ -41,7 +41,7 @@ const checkLastName = () => {
     if (!isRequired(lname)) {
         showError(lnameEl, 'Please enter your last name.');
     } else if (!isBetween(lname.length, min, max)) {
-        showError(lnameEl, `Last name must be between ${min} and ${max} characters.`);
+        showError(lnameEl, 'Last name must be between ${min} and ${max} characters.');
     } else {
         showSuccess(lnameEl);
         valid = true;
@@ -61,7 +61,7 @@ const checkUsername = () => {
     if (!isRequired(username)) {
         showError(usernameEl, 'Username cannot be blank.');
     } else if (!isBetween(username.length, min, max)) {
-        showError(usernameEl, `Username must be between ${min} and ${max} characters.`);
+        showError(usernameEl, 'Username must be between ${min} and ${max} characters.');
     } else {
         showSuccess(usernameEl);
         valid = true;
@@ -81,7 +81,7 @@ const checkNIC = () => {
     if (!isRequired(nic)) {
         showError(nicEl, 'NIC cannot be blank.');
     } else if (!isBetween(nic.length, min, max)) {
-        showError(nicEl, `Please enter a valid NIC.`);
+        showError(nicEl, 'Please enter a valid NIC.');
     } else {
         showSuccess(nicEl);
         valid = true;
@@ -91,8 +91,14 @@ const checkNIC = () => {
 
 
 const checkEmail = () => {
+    
     let valid = false;
+    
+    const min = 3,
+        max = 30;
+    
     const email = emailEl.value.trim();
+    
     if (!isRequired(email)) {
         showError(emailEl, 'Email cannot be blank.');
     } else if (!isEmailValid(email)) {
@@ -106,7 +112,9 @@ const checkEmail = () => {
 
 const checkPassword = () => {
     let valid = false;
-
+    
+    const min = 8,
+        max = 30;
 
     const password = passwordEl.value.trim();
 
@@ -177,34 +185,35 @@ const showSuccess = (input) => {
     // hide the error message
     const error = formField.querySelector('small');
     error.textContent = '';
-}
+};
 
 
-form.addEventListener('submit', function (e) {
-    // prevent the form from submitting
-    e.preventDefault();
-
-    // validate fields
-    let isUsernameValid = checkUsername(),
-        isEmailValid = checkEmail(),
-        isPasswordValid = checkPassword(),
-        isConfirmPasswordValid = checkConfirmPassword();
-        isFirstNameValid = checkFirstName();
-        isLastNameValid = checkLastName();
-        isNICValid = checkNIC();
-
-    let isFormValid = isFirstNameValid &&
-        isLastNameValid &&
-        isNICValidisUsernameValid &&
-        isEmailValid &&
-        isPasswordValid &&
-        isConfirmPasswordValid;
-
-    // submit to the server if the form is valid
-    if (isFormValid) {
-
-    }
-});
+//form.addEventListener('submit', function (e) {
+//    // prevent the form from submitting
+//    e.preventDefault();
+//
+//    // validate fields
+//    let isUsernameValid = checkUsername(),
+//        isEmailValid = checkEmail(),
+//        isPasswordValid = checkPassword(),
+//        isConfirmPasswordValid = checkConfirmPassword();
+//        isFirstNameValid = checkFirstName();
+//        isLastNameValid = checkLastName();
+//        isNICValid = checkNIC();
+//
+//    let isFormValid = isFirstNameValid &&
+//        isLastNameValid &&
+//        isNICValid &&
+//        isUsernameValid &&
+//        isEmailValid &&
+//        isPasswordValid &&
+//        isConfirmPasswordValid;
+//
+//    // submit to the server if the form is valid
+//    if (isFormValid) {
+//        <jsp:forward page ="signup.jsp" />;
+//    }
+//});
 
 
 const debounce = (fn, delay = 500) => {
@@ -216,7 +225,7 @@ const debounce = (fn, delay = 500) => {
         }
         // setup a new timer
         timeoutId = setTimeout(() => {
-            fn.apply(null, args)
+            fn.apply(null, args);
         }, delay);
     };
 };
@@ -225,15 +234,18 @@ form.addEventListener('input', debounce(function (e) {
     switch (e.target.id) {
         case 'fname':
             checkFirstName();
+            break;
         case 'lname':
             checkLastName();
+            break;
         case 'nic':
             checkNIC();
-        case 'username':
-            checkUsername();
             break;
         case 'email':
             checkEmail();
+            break;
+        case 'username':
+            checkUsername();
             break;
         case 'password':
             checkPassword();
