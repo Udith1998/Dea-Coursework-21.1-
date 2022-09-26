@@ -125,13 +125,13 @@
 
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        Flights
+                                        Flight Booking
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        Flight Booking
+                                        Ticket Booking
                                     </a>
                                 </li>
 
