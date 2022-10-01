@@ -220,7 +220,7 @@
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PhoenixAirlinesDB","root","");
 
-                PreparedStatement pst = con.prepareStatement("Select * from Client where username = ? and password = ?");
+                PreparedStatement pst = con.prepareStatement("select * from Client where username = ? and password = ?");
                 pst.setString(1, username);
                 pst.setString(2, password);
 
