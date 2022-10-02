@@ -366,7 +366,7 @@
     <!-- Custom js -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/add-form.js"></script>
-    <script src="login.js" type="text/javascript"></script>
+    <script src="assets/js/login.js" type="text/javascript"></script>
 </body>
 
 </html>

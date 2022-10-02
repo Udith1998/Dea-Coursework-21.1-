@@ -439,7 +439,7 @@
     <!-- Custom js -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/add-form.js"></script>
-    <script src="signup.js" type="text/javascript"></script>
+    <script src="assets/js/signup.js" type="text/javascript"></script>
     
 </body>
 
