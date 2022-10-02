@@ -42,7 +42,7 @@ public class Login_Servlet extends HttpServlet {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con;
 			con = DriverManager.getConnection(url,"root","");
-			String sql="SELECT * FROM admin WHERE AdminUname=? AND AdminPwd=?;";
+			String sql="SELECT * FROM staff02 WHERE uname=? AND Pwd=?;";
 			PreparedStatement ps= con.prepareStatement(sql);
 			ps.setString(1, uname);
 			ps.setString(2,pwd);
