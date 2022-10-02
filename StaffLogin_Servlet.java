@@ -35,22 +35,29 @@ public class Login_Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uname= request.getParameter("uname");
 		String pwd=request.getParameter("pwd");
-		PrintWriter pw =response.getWriter();
 		
 		String url="jdbc:mysql://localhost:3306/registration";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con;
 			con = DriverManager.getConnection(url,"root","");
-			String sql="SELECT * FROM staff02 WHERE uname=? AND Pwd=?;";
-			PreparedStatement ps= con.prepareStatement(sql);
-			ps.setString(1, uname);
-			ps.setString(2,pwd);
-			ResultSet rs=ps.executeQuery();
+			String sql1="SELECT * FROM staff01 WHERE uname=? AND Pwd=?;";
+			String sql2="SELECT * FROM staff02 WHERE uname=? AND Pwd=?;";
+			PreparedStatement ps1= con.prepareStatement(sql1);
+			ps1.setString(1, uname);
+			ps1.setString(2,pwd);
+			ResultSet rs1=ps1.executeQuery();
 			
+			PreparedStatement ps2= con.prepareStatement(sql2);
+			ps2.setString(1, uname);
+			ps2.setString(2,pwd);
+			ResultSet rs2=ps2.executeQuery();
 			
-			if(rs.next()) {
-				response.sendRedirect("#");
+			if(rs1.next()) {
+				response.sendRedirect("Staff01Dashboard");
+			}
+			if(rs2.next()) {
+				response.sendRedirect("Staff02Dashboard");
 			}
 			
 		} catch (SQLException e) {
