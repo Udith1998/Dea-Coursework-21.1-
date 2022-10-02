@@ -51,46 +51,48 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                     </div>
+                    
                     <%if (session == null || session.getAttribute("username") == null){%>
-                        <div class="col-lg-6 col-md-6">
-                            <ul class="topbar-others-options">
-                                <li><a href="login.html">Login</a></li>
-                                <li> <a href="signup.html">Sign up</a>
-                                </li>
-                                <li>
-                                    <div class="dropdown language-option">
-                                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">
-                                            <span class="lang-name"></span>
-                                        </button>
-                                        <div class="dropdown-menu language-dropdown-menu">
-                                            <a class="dropdown-item" href="#">USD</a>
-                                            <a class="dropdown-item" href="#">LKR</a>
-                                        </div>
+                    <div class="col-lg-6 col-md-6">
+                        <ul class="topbar-others-options">
+                            <li><a href="login.html">Login</a></li>
+                            <li> <a href="signup.html">Sign up</a>
+                            </li>
+                            <li>
+                                <div class="dropdown language-option">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <span class="lang-name"></span>
+                                    </button>
+                                    <div class="dropdown-menu language-dropdown-menu">
+                                        <a class="dropdown-item" href="#">USD</a>
+                                        <a class="dropdown-item" href="#">LKR</a>
                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-                    <%}
-                    else{%>
-                        <div class="col-lg-6 col-md-6">
-                            <ul class="topbar-others-options">
-                                <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
-                                <li>
-                                    <div class="dropdown language-option">
-                                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                            aria-haspopup="true" aria-expanded="false">
-                                            <span class="lang-name"></span>
-                                        </button>
-                                        <div class="dropdown-menu language-dropdown-menu">
-                                            <a class="dropdown-item" href="#">USD</a>
-                                            <a class="dropdown-item" href="#">LKR</a>
-                                        </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <%}
+                else{%>
+                    <div class="col-lg-6 col-md-6">
+                        <ul class="topbar-others-options">
+                            <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
+                            <li>
+                                <div class="dropdown language-option">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <span class="lang-name"></span>
+                                    </button>
+                                    <div class="dropdown-menu language-dropdown-menu">
+                                        <a class="dropdown-item" href="#">USD</a>
+                                        <a class="dropdown-item" href="#">LKR</a>
                                     </div>
-                                </li>
-                            </ul>
-                        </div>
-                    <%}%>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <%}%>
+                
                 </div>
             </div>
         </div>
@@ -118,25 +120,19 @@
                             <ul class="navbar-nav">
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="index.jsp" class="nav-link">
                                         Home
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="flightBooking.jsp" class="nav-link">
                                         Flight Booking
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Ticket Booking
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="customerDashboard.jsp" class="nav-link">
                                         Dashboard
                                     </a>
                                 </li>
@@ -148,7 +144,7 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href="#" class="nav-link">
                                         Contact Us
                                     </a>
                                 </li>
@@ -169,7 +165,7 @@
                     <div class="common_bannner_text">
                         <h2>Login</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.jsp">Home</a></li>
                             <li><span><i class="fas fa-circle"></i></span> Login</li>
                         </ul>
                     </div>
@@ -228,9 +224,8 @@
                 boolean found = rs.next();
 
                 if(found){           
-                    %>
-                        <jsp:forward page ="index.html"/>
-                    <%
+                    session.setAttribute("username",username); 
+                    response.sendRedirect("customerDashboard.jsp"); 
                 }
 
                 else{           
