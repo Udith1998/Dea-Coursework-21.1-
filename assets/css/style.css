@@ -49,7 +49,7 @@ a {
     -webkit-transition: all 0.3s ease-in-out 0.1s;
     transition: all 0.3s ease-in-out 0.1s;
     outline: 0 !important;
-    color: #ffffff;
+    color: #a4b0ca;
 }
 
 a:hover {
@@ -458,7 +458,7 @@ section {
 
 /* --Banner Area-- */
 #home_one_banner {
-    background-image: url("../img/banner/bg.png");
+    background-image: url("../img/banner/bg.jpg");
     padding: 370px 0 280px 0;
     position: relative;
     background-position: center;
@@ -528,7 +528,7 @@ section {
 
 
 .flight_Search_boxed {
-    background: #8b3eea17;
+    background: #eef4ff;
     padding: 10px 10px 10px 20px;
     border-radius: 10px;
     position: relative;
@@ -552,7 +552,7 @@ section {
 }
 
 .range_plan i {
-    background: #f5eefd;
+    background: #eef4ff;
     font-size: 24px;
     width: 50px;
     height: 50px;
@@ -1263,7 +1263,7 @@ section {
 
 /* --Footer Area-- */
 #footer_area {
-    background-image: url("../img/banner/bg.JPG");
+    background-image: url("../img/banner/bg.jpg");
     padding: 100px 0px;
     background-position: center;
     background-repeat: no-repeat;
@@ -1612,7 +1612,7 @@ section {
 
 /* --Partner Aarea-- */
 .partner_area_bg {
-    background-image: url('../img/common/video_bg.png');
+    background-image: url('../img/common/video_bg.jpg');
     padding: 70px 0;
     background-repeat: no-repeat;
     background-size: cover;
@@ -4226,6 +4226,7 @@ textarea {
     display: flex;
     align-items: center;
     padding-left: 47px;
+    margin-left: 60px;
 }
 
 .flight_multis_area_wrapper {
@@ -4235,6 +4236,7 @@ textarea {
 
 .flight_search_destination {
     padding-left: 33px;
+    margin-left: 60px;
 }
 
 .flight_search_destination p {
@@ -4250,8 +4252,6 @@ textarea {
 .flight_search_destination h6 {
     padding-top: 5px;
     font-size: 12px;
-    text-overflow: ellipsis;
-    overflow: hidden;
     white-space: nowrap;
     width: 140px;
 }
@@ -4279,8 +4279,8 @@ textarea {
 }
 
 .flight_search_right {
-    background: #F3EFF9;
-    padding: 25px 16px 20px 25px;
+    background: #eef4ff;
+    padding: 25px 60px 25px 60px;
 }
 
 .flight_search_right h5 {
@@ -5133,4 +5133,32 @@ input:nth-of-type(6):checked ~ main#carousel {
     opacity: .8;
     font-size: 16px;
     line-height: 0;
+}
+
+.username-display {
+    color: white;
+}
+
+select{
+    font-size: 22px;
+    max-width: 230px;
+    font-weight: 500;
+    background-color: #eef4ff;
+    border-style: none;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+
+option{
+    font-size: 16px;
+    background-color: #fff;
+    padding-bottom: 100px;
+}
+
+.select-class select{
+    max-width: 150px;
+}
+
+.col-lg-new{
+    flex:0 0 auto;width:16.6%
 }
