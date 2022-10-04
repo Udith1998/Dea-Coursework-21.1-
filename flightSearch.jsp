@@ -54,4 +54,57 @@
         });
     </script>
     
+    <!-- Header Area -->
+    <header class="main_header_arae">
+        <!-- Top Bar -->
+        <div class="topbar-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                    </div>
+                    
+                    <%if (session == null || session.getAttribute("username") == null){%>
+                    <div class="col-lg-6 col-md-6">
+                        <ul class="topbar-others-options">
+                            <li><a href="login.jsp">Login</a></li>
+                            <li> <a href="signup.jsp">Sign up</a>
+                            </li>
+                            <li>
+                                <div class="dropdown language-option">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <span class="lang-name"></span>
+                                    </button>
+                                    <div class="dropdown-menu language-dropdown-menu">
+                                        <a class="dropdown-item" href="#">USD</a>
+                                        <a class="dropdown-item" href="#">LKR</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <%}
+                else{%>
+                    <div class="col-lg-6 col-md-6">
+                        <ul class="topbar-others-options">
+                            <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
+                            <li>
+                                <div class="dropdown language-option">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <span class="lang-name"></span>
+                                    </button>
+                                    <div class="dropdown-menu language-dropdown-menu">
+                                        <a class="dropdown-item" href="#">USD</a>
+                                        <a class="dropdown-item" href="#">LKR</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <%}%>
+                </div>
+            </div>
+        </div>
+    
 </body>
