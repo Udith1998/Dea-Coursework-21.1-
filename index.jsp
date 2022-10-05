@@ -45,8 +45,8 @@
                     <%if (session == null || session.getAttribute("username") == null){%>
                     <div class="col-lg-6 col-md-6">
                         <ul class="topbar-others-options">
-                            <li><a href="login.html">Login</a></li>
-                            <li> <a href="signup.html">Sign up</a>
+                            <li><a href="login.jsp">Login</a></li>
+                            <li><a href="signup.jsp">Sign up</a>
                             </li>
                             <li>
                                 <div class="dropdown language-option">
@@ -93,7 +93,7 @@
                 <div class="container">
                     <div class="main-responsive-menu">
                         <div class="logo">
-                            <a href="index.html">
+                            <a href="index.jsp">
                                 <img src="assets/img/logo.png" alt=""/>
                             </a>
                         </div>
@@ -103,32 +103,32 @@
             <div class="main-navbar">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="index.jsp">
                             <img src="assets/img/logo.png" alt=""/>
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav">
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="index.jsp" class="nav-link">
                                         Home
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Flights
+                                    <a href="flightBooking.jsp" class="nav-link">
+                                        Flight Booking
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
-                                        Flight Booking
+                                        Ticket Booking
                                     </a>
                                 </li>
 
                                      <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="customerDashboard.jsp" class="nav-link">
                                         Dashboard
                                     </a>
                                 </li>
@@ -168,7 +168,7 @@
                                 <h2 class="slider-pararp">The world with us!</h2>
                                 <h4 class="slider-pararp">Find awesome flights,tour and packages</h4>
                                 <div class="home_two_button btn-animation">
-                                    <a href="top-destinations.html" class="btn btn_theme_white btn_md">Know More</a>
+                                    <a href="#" class="btn btn_theme_white btn_md">Know More</a>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                                 <h2 class="slider-pararp">Every takeoff is optional. Every landing is mandatory.</h2>
                                 <h4 class="slider-pararp">Flying the airplane is more important than radioing your plight to a person on the ground incapable of understanding it.</h4>
                                 <div class="home_two_button btn-animation">
-                                    <a href="top-destinations.html" class="btn btn_theme_white btn_md">Know more</a>
+                                    <a href="#" class="btn btn_theme_white btn_md">Know more</a>
                                 </div>
                             </div>
                         </div>
@@ -204,7 +204,7 @@
                                 <h2 class="slider-pararp">Flight by Destination</h2>
                                 <h4 class="slider-pararp">No hidden fees. No hidden charges. No funny business. With us, you’ll always know exactly where your money goes</h4>
                                 <div class="home_two_button btn-animation">
-                                    <a href="top-destinations.html" class="btn btn_theme_white btn_md">Know more</a>
+                                    <a href="#" class="btn btn_theme_white btn_md">Know more</a>
                                 </div>
                             </div>
                         </div>
@@ -279,7 +279,6 @@
                                     <div class="holiday_small_box_content">
                                         <div class="holiday_inner_content">
                                             <h3>London</h3>
-                                            <!-- <h4>8 days 7 nights</h4> -->
                                             <p>The London Eye is a cantilevered observation wheel on the South Bank of the River Thames in London.</p>
                                         </div>
                                     </div>
@@ -444,23 +443,15 @@
                                 <img src="assets/img/destination/home-two-des-1.jpg" alt="img">
                                 <div class="choose_img_text">
                                     <h2>SYDNEY</h2>
-                                    
                                 </div>
                             </div>
                             <div class="flep_choose_box">
                                 <div class="flep_choose_box_inner">
-                                    <div class="rating_outof">
-                                        <!-- <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <h5>5 Out of 5</h5> -->
-                                    </div>
+
                                     <h2>SYDNEY |</h2>
                                     
                                     <p>The Opera House is Sydney's best-known landmark. It is a multipurpose performing arts facility whose largest venue, the 2,679-seat Concert Hall.</p>
-                                    <a href="top-destinations-details.html">Tour details</a>
+                                    <a href="flightBooking.jsp">Check flights</a>
                                 </div>
                             </div>
                         </div>
@@ -484,7 +475,7 @@
                                     <h2>NEW YORK |</h2>
                                     
                                     <p>The Statue of Liberty's torch lights the way to freedom showing us the path to Liberty. "Liberty Enlightening the World.</p>
-                                    <a href="top-destinations-details.html">Tour details</a>
+                                    <a href="flightBooking.jsp">Check flights</a>
                                 </div>
                             </div>
                         </div>
@@ -503,12 +494,10 @@
                             </div>
                             <div class="flep_choose_box">
                                 <div class="flep_choose_box_inner">
-                                    <div class="rating_outof">
-                                    </div>
                                     <h2>ORTAKOY MOSQUE |</h2>
                                     
                                     <p>Ortaköy Mosque in Istanbul with the Bosphorus Bridge on Background</p>
-                                    <a href="top-destinations-details.html">Tour details</a>
+                                    <a href="flightBooking.jsp">Check flights</a>
                                 </div>
                             </div>
                         </div>
@@ -527,12 +516,11 @@
                             </div>
                             <div class="flep_choose_box">
                                 <div class="flep_choose_box_inner">
-                                    <div class="rating_outof">
-                                    </div>
+                                    
                                     <h2>RIO DE JANEIRO |</h2>
                                    
                                     <p>Christ the Redeemer is the largest art deco statue in the world. It is 98 feet tall (not including the 26 foot pedestal), and the arms stretch to 92 feet wide.</p>
-                                    <a href="top-destinations-details.html">Tour details</a>
+                                    <a href="flightBooking.jsp">Check flights</a>
                                 </div>
                             </div>
                         </div>
@@ -545,8 +533,7 @@
                             <div class="choose_boxed_inner">
                                 <img src="assets/img/destination/home-two-des-5.jpg" alt="img">
                                 <div class="choose_img_text">
-                                    <h2>TAJ MAHAL</h2>
-                                    
+                                    <h2>TAJ MAHAL</h2>  
                                 </div>
                             </div>
                             <div class="flep_choose_box">
@@ -556,7 +543,7 @@
                                     <h2>TAJ MAHAL |</h2>
                                     
                                     <p>The Taj Mahal is a perfect symmetrical planned building, with an emphasis of bilateral symmetry along a central axis on which the main features are placed.</p>
-                                    <a href="top-destinations-details.html">Tour details</a>
+                                    <a href="flightBooking.jsp">Check flights</a>
                                 </div>
                             </div>
                         </div>
@@ -575,18 +562,10 @@
                             </div>
                             <div class="flep_choose_box">
                                 <div class="flep_choose_box_inner">
-                                    <div class="rating_outof">
-                                        <!-- <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <h5>5 Out of 5</h5> -->
-                                    </div>
                                     <h2>MACHU PICCHU | </h2>
                                     
                                     <p>Machu Picchu , Ancient fortress city of the Incas in the Andes Mountains, south-central Peru. Perched near Cuzco in a narrow saddle between two sharp peaks, at an elevation of 7,710 ft (2,350 m), it escaped detection by the Spaniards, and its existence was made known only in 1911 by U.S. explorer Hiram Bingham.</p>
-                                    <a href="top-destinations-details.html">Tour details</a>
+                                    <a href="flightBooking.jsp">Check flights</a>
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,264 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import = "java.sql.*"%>
+<%@page import = "java.util.*"%>
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Title -->
+    <title>Admin Dashboard - PHOENIX AIRLINES </title>
+    <!-- Bootstrap css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- animate css -->
+    <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <!-- Fontawesome css -->
+    <link rel="stylesheet" href="assets/css/fontawesome.all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <!-- Rangeslider css -->
+    <link rel="stylesheet" href="assets/css/nouislider.css" />
+    <!-- owl.theme.default css -->
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+    <!-- navber css -->
+    <link rel="stylesheet" href="assets/css/navber.css" />
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="assets/css/meanmenu.css" />
+    <!-- Style css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+</head>
+
+<body>
+    
+    <!-- Header Area -->
+    <header class="main_header_arae">
+    
+    <!-- Navigation bar -->
+    <div class="navbar-area">
+        <div class="main-responsive-nav">
+            <div class="container">
+                <div class="main-responsive-menu">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/img/logo.png" alt=""/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-navbar">
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo.png" alt=""/>
+                    </a>
+                    <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+
+                            <li class="nav-item">
+                                <a href="index.jsp" class="nav-link">
+                                    Home
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    Flight Booking
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    Ticket Booking
+                                </a>
+                            </li>
+
+                                 <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    Dashboard
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a href="faqs.html" class="nav-link">
+                                    FAQ
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="contact.html" class="nav-link">
+                                    Contact Us
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    </header>
+
+    <!-- Common Banner Area -->
+    <section id="common_banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="common_bannner_text">
+                        <h2>Admin Dashboard</h2>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><span><i class="fas fa-circle"></i></span>Admin Dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Area -->
+    <section id="dashboard_main_arae" class="section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="dashboard_sidebar">
+                        <div class="dashboard_sidebar_user">
+                            <img src="assets/img/common/dashboard-user1.png" alt="img">
+                            <h3>
+                                Admin
+                            </h3>
+                            <p>
+                                Name 
+                            </p>
+                        </div>
+                        <div class="dashboard_menu_area">
+                            <ul>
+                                <li><a href="adminDashboard.jsp" class="active"> <i class="fas fa-tachometer-alt"></i>Flights</a></li>
+                                <li><a href=""><i class="fas fa-wallet"></i>Tickets</a></li>
+                                <li><a href=""><i class="fas fa-user-circle"></i>Staff Members</a></li>
+
+                                <li>
+                                    <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="fas fa-sign-out-alt"></i><a href="logout.jsp"> Logout </a>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="dashboard_common_table">
+                        <h3>My Flight Bookings</h3>
+                        <div class="table-responsive-lg table_common_area">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Sl no.</th>
+                                        <th>Booking ID</th>
+                                        <th>Booking type</th>
+                                        <th>Booking amount</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="complete">Completed</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>02.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="complete">Completed</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>03.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="complete">Completed</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>04.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="complete">Completed</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>05.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="cancele">Canceled</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>06.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="complete">Completed</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="pagination_area">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    <!-- Meanu js -->
+    <script src="assets/js/jquery.meanmenu.js"></script>
+    <!-- owl carousel js -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- wow.js -->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- Custom js -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/add-form.js"></script>
+
+</body>
+
+</html>
