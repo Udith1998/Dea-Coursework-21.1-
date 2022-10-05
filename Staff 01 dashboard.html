@@ -1,3 +1,7 @@
+<!-- <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import = "java.sql.*"%>
+<%@page import = "java.util.*"%> -->
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -5,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title -->
-    <title>Dashboard - Andtourtravel </title>
+    <title>Staff 01 Dashboard - PHOENIX AIRLINES </title>
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!-- animate css -->
@@ -30,362 +34,244 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
 </head>
+<style>
+   /* * { padding:0; margin:0; outline:0; }
+body {
+    background:#f9ebae;
+    font-family: Verdana, sans-serif;
+    font-size:11px;
+    line-height:14px;
+    color:#5e5e5e;
+}*/
+/*input, textarea, select { font-family: Verdana, sans-serif; font-size:13px; }*/
+/*textarea { overflow:hidden; }*/
+
+.field { border:solid 1px #d3cfc7; background:#fff; padding:5px; }
+.small-field { border:solid 1px #d3cfc7; background:#fff; padding:3px 1px; font-size:11px; }
+
+.checkbox { width:13px; height:13px; vertical-align:top; position:relative; top:2px; }
+
+.button { background:#eee url(images/button.gif) repeat-x 0 0; border:solid 1px #b1a874; color:#7f7f7f; font-size:11px; padding:2px 6px 2px 6px; cursor:pointer; line-height:14px !important; }
+.button:hover { color:#333; border-color:#857b42; }
+
+
+.field:focus { color:#000; border-color:#857b42;}
+
+a img { border:0; }
+
+a { color:#ba4c32; text-decoration: underline; cursor:pointer; }
+a:hover { color:#8d341f; text-decoration: none;}
+
+.left, .alignleft { float:left; display:inline; }
+.right, .alignright { float:right; display:inline; }
+
+.cl { font-size:0; line-height:0; clear:both; display:block; height:0; }
+
+.al { text-align: left; }
+.ar { text-align: right; }
+.ac { text-align: center !important; }
+
+h1{ font-size:22px; line-height:24px; color:#fff; font-weight: normal;}
+h1 a{ color:#fff; text-decoration: none; }
+h2 { font-size:15px; font-weight: normal; }
+h3 { font-size:12px; line-height:14px; font-weight: normal; }
+h3 a{ text-decoration: none; }
+
+
+
+.shell { width:988px; margin:0 auto; }
+
+#header { height:89px; background:url(images/header.gif); white-space:nowrap; }
+#header h1{ float:left; display:inline; padding-top:12px; }
+#top-navigation { float:right; white-space:nowrap; color:#fff; padding-top:15px; }
+#top-navigation a{ color:#fff; }
+#top-navigation span{ color:#dca598; }
+#top { height:53px; }
+
+#navigation { height:36px;}
+#navigation ul{ list-style-type: none;}
+#navigation ul li{ float:left; display:inline; margin-right:2px;}
+#navigation ul li a,
+#navigation ul li a span { float:left; height:36px; background:url(images/tab.gif) no-repeat 0 0; padding:0 0 0 15px;}
+#navigation ul li a span { background-position:right 0; padding:0 15px 0 0;}
+#navigation ul li a { line-height:36px; color:#907525; text-decoration: none; }
+
+#navigation ul li a.active,
+#navigation ul li a:hover { background-position:0 bottom;}
+
+#navigation ul li a.active span,
+#navigation ul li a:hover span{ background-position:right bottom;}
+
+#navigation ul li a.active { font-size:12px; font-weight: bold; color:blue; }
+
+
+#container { padding:20px 0;}
+
+.small-nav { color:#978b48; padding-bottom:20px; }
+.small-nav a{ color:#6f6636; }
+
+
+#main {}
+#content { float:left; width:750px; }
+#sidebar { float:right; width:225px; }
+
+
+.table {}
+.table th{ background:#fffdfa url(images/th.gif) repeat-x 0 0; color:#818181; text-align: left; padding:7px 10px; border-bottom:solid 1px #d2d1cb;}
+.table td{ background:#fbfcfc;  border-bottom:solid 1px #e0e0e0; padding:8px 10px; }
+.table tr.odd td{ background:#f8f8f8; }
+.table tr:hover td{ background:#fff9e1; }
+.table a.ico{ }
+
+.box { background:#fbfcfc; height:100%; padding:1px; margin-bottom:20px; }
+.box-head { background:#ba4c32; height:32px; color:#fff; padding: 0 10px; line-height:32px; white-space:nowrap; border-bottom:solid 1px #fff; }
+.box-head .right{ padding-top:5px; line-height:13px;}
+.box-head .right label,
+.box-head .right input { float:left; }
+.box-head .right label { padding:4px 0 0 0;}
+.box-head .right input { margin-left:5px;}
+
+.pagging { height:20px; padding:8px 10px; line-height:19px; color:#949494; }
+.pagging a{ background:url(images/pagging.gif) repeat-x 0 0; height:20px; float:left; padding:0 8px; border:solid 1px #d5d5d5; text-decoration: none; color:#949494; margin-left:5px;  }
+.pagging a:hover { border-color:#8c3521; background:#ba4c32; color:#fff; }
+.pagging span{ float:left; margin-left:5px; padding-top:2px; }
+
+
+a.ico { color:#9d9c9a; font-size:10px; text-decoration: none; padding:0 0 0 14px; background-repeat:no-repeat; background-position:0 0; }
+a.ico:hover { color:#333;}
+a.del { background-image:url(images/del.gif)}
+a.edit { background-image:url(images/edit.gif); margin-left:14px;}
+
+
+.form { padding:15px 10px 5px 10px; }
+.form label{ display:block; font-weight: bold; font-size:13px; padding-bottom:4px; }
+.form label span{ color:#999; font-weight: normal;}
+.form .field { display:block; }
+.form .inline-field .field { display:inline;}
+.form .req { font-size:13px; float:right; white-space:nowrap; color:#999;  }
+.form p{ padding-bottom:15px; }
+
+.size1 { width:716px; }
+.size2 { width:80px; }
+.size3 { width:120px; }
+textarea.size1 { height:180px; }
+
+.buttons { text-align: right; padding:10px; background:#eee; border-top:solid 1px #e0e0e0; }
+.buttons .button{ margin-left:3px;}
+
+.box-content { padding:10px; }
+
+.sort { border-top:solid 1px #e0e0e0; padding-top:10px; margin-top:15px;   }
+.sort label{ display:block; font-weight: bold;}
+.sort .field{ display:block; margin-top:5px; }
+.sort select.field{ width:203px; }
+
+
+.box-content p { padding-top:10px; }
+.select-all{}
+.select-all label{ text-decoration: underline; padding-left:4px; }
+
+.add-button,
+.add-button span { float:left; height:26px; background:url(images/add-button.gif) no-repeat 0 0; padding:0 0 0 28px; }
+.add-button span { background-position:right 0; padding:0 10px 0 0; }
+.add-button { font-weight: bold; font-size:12px; color:#747474; text-decoration: none; line-height:26px; }
+.add-button:hover { color:#333;}
+
+
+#footer { height:44px; background:url(images/footer.gif); line-height:44px; color:#fff;}
+#footer a{ color:#fff; }
+
+
+.msg { position:relative; padding-right:35px; margin-bottom:10px; }
+.msg p{ padding:9px 10px 9px 40px; font-size:12px; background-repeat:no-repeat; background-position:10px 5px;}
+.msg a.close{ font-size:0; line-height:0; position:absolute; top:0; right:0; width:34px; height:34px; background:url(images/close.gif); text-indent: -4000px;}
+
+.msg-ok p{ background-color:#fffac2; border:solid 1px #dbd6a2; color:#5e5c40; background-image:url(images/msg-ok.gif); }
+.msg-error p{ background-color:#f3c598; border:solid 1px #e8b084; color:#ba4c32; background-image:url(images/msg-error.gif);  }
+
+/*** CSS3 ***/
+.box { -moz-border-radius:5px; -webkit-border-radius:5px; -moz-box-shadow: 0 0 6px #978f6c; -webkit-box-shadow: 0 0 6px #978f6c;}
+.box-head { -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px; -webkit-border-top-left-radius:5px; -webkit-border-top-right-radius:5px; }
+
+.field, .button { -moz-border-radius:4px; -webkit-border-radius:4px; }
+.small-field, .button, .pagging a { -moz-border-radius:3px; -webkit-border-radius:3px; }
+
+.msg p { -moz-border-radius:6px; -webkit-border-radius:6px; }
+
+.button { -moz-box-shadow: 0 0 2px #978f6c; -webkit-box-shadow: 0 0 2px #978f6c;}
+</style>
 
 <body>
-    <!-- preloader Area -->
-    <div class="preloader">
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="lds-spinner">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
     <!-- Header Area -->
     <header class="main_header_arae">
-        <!-- Top Bar -->
-        <div class="topbar-area">
+    
+    <!-- Navigation bar -->
+    <div class="navbar-area">
+        <div class="main-responsive-nav">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-6">
-                        <ul class="topbar-list">
-                            <li>
-                                <a href="#!"><i class="fab fa-facebook"></i></a>
-                                <a href="#!"><i class="fab fa-twitter-square"></i></a>
-                                <a href="#!"><i class="fab fa-instagram"></i></a>
-                                <a href="#!"><i class="fab fa-linkedin"></i></a>
-                            </li>
-                            <li><a href="#!"><span>+011 234 567 89</span></a></li>
-                            <li><a href="#!"><span>contact@domain.com</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <ul class="topbar-others-options">
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Sign up</a></li>
-                            <li>
-                                <div class="dropdown language-option">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <span class="lang-name"></span>
-                                    </button>
-                                    <div class="dropdown-menu language-dropdown-menu">
-                                        <a class="dropdown-item" href="#">English</a>
-                                        <a class="dropdown-item" href="#">Arabic</a>
-                                        <a class="dropdown-item" href="#">French</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="dropdown language-option">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <span class="lang-name"></span>
-                                    </button>
-                                    <div class="dropdown-menu language-dropdown-menu">
-                                        <a class="dropdown-item" href="#">USD</a>
-                                        <a class="dropdown-item" href="#">BD</a>
-                                        <a class="dropdown-item" href="#">URO</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Navbar Bar -->
-        <div class="navbar-area">
-            <div class="main-responsive-nav">
-                <div class="container">
-                    <div class="main-responsive-menu">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="assets/img/logo.png" alt="logo">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="main-navbar">
-                <div class="container">
-                    <nav class="navbar navbar-expand-md navbar-light">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="assets/img/logo.png" alt="logo">
+                <div class="main-responsive-menu">
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="assets/img/logo.png" alt=""/>
                         </a>
-                        <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Home
-                                        <i class="fas fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="index.html" class="nav-link">Home One</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="index-2.html" class="nav-link">Home Two</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Tours
-                                        <i class="fas fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="tour-search.html" class="nav-link">Tour</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="tour-details.html" class="nav-link">Tour Details</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="tour-booking-submission.html" class="nav-link">Tour Booking</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="top-destinations.html" class="nav-link">Top Destination</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="top-destinations-details.html" class="nav-link">Destination
-                                                Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Flights
-                                        <i class="fas fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="flight-search-result.html" class="nav-link">Flight</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="flight-booking-submission.html" class="nav-link">Flight Booking</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Hotel
-                                        <i class="fas fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="hotel-search.html" class="nav-link">Hotel</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="hotel-details.html" class="nav-link">Hotel Booking</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="room-details.html" class="nav-link">Room Details</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="room-booking.html" class="nav-link">Room Booking</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Visa
-                                        <i class="fas fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="visa-details.html" class="nav-link">Visa Details</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="visa-application.html" class="nav-link">Visa Application</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="visa-info.html" class="nav-link">Business visa </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="visa-info.html" class="nav-link">Education visa </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="visa-info.html" class="nav-link">Working visa </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="visa-info.html" class="nav-link">Tourist visa </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="visa-info.html" class="nav-link">Medical visa </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="visa-info.html" class="nav-link">On-arrival visa </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link active">
-                                        Pages
-                                        <i class="fas fa-angle-down"></i>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item">
-                                            <a href="about.html" class="nav-link">About</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="tour-guides.html" class="nav-link">Team</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="testimonials.html" class="nav-link">Testimonials</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="faqs.html" class="nav-link">FAQ</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="booking-confirmation.html" class="nav-link">Booking
-                                                Confirmation</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">News</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a href="news.html" class="nav-link">News</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="news-details.html" class="nav-link">News Details</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">User Pages</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a href="login.html" class="nav-link">Login</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="register.html" class="nav-link">Register</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="forgot-password.html" class="nav-link">Forget Password</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="verify-otp.html" class="nav-link">Verify OTP</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="reset-password.html" class="nav-link">Reset Password</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link active">Customer Dashboard</a>
-                                            <ul class="dropdown-menu">
-                                                <li class="nav-item">
-                                                    <a href="dashboard.html" class="nav-link active">Dashboard</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="hotel-booking.html" class="nav-link">Hotel booking</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="flight-booking.html" class="nav-link">Flight booking</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="tour-booking.html" class="nav-link">Tour booking</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="booking-history.html" class="nav-link ">Booking
-                                                        history</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="my-profile.html" class="nav-link">My profile</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="wallet.html" class="nav-link">Wallet</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="notification.html" class="nav-link">Notifications</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="privacy-policy.html" class="nav-link">Privacy Policy</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="error.html" class="nav-link">404 Error</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">Contact</a>
-                                </li>
-                            </ul>
-                            <div class="others-options d-flex align-items-center">
-                                <div class="option-item">
-                                    <a href="#" class="search-box">
-                                        <i class="bi bi-search"></i></a>
-                                </div>
-                                <div class="option-item">
-                                    <a href="become-vendor.html" class="btn  btn_navber">Become a partner</a>
-                                </div>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <div class="others-option-for-responsive">
-                <div class="container">
-                    <div class="dot-menu">
-                        <div class="inner">
-                            <div class="circle circle-one"></div>
-                            <div class="circle circle-two"></div>
-                            <div class="circle circle-three"></div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="option-inner">
-                            <div class="others-options d-flex align-items-center">
-                                <div class="option-item">
-                                    <a href="#" class="search-box"><i class="fas fa-search"></i></a>
-                                </div>
-                                <div class="option-item">
-                                    <a href="contact.html" class="btn  btn_navber">Get free quote</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+        <div class="main-navbar">
+            <div class="container">
+                <nav class="navbar navbar-expand-md navbar-light">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/img/logo.png" alt=""/>
+                    </a>
+                    <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
 
-    <!-- search -->
-    <div class="search-overlay">
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="search-overlay-layer"></div>
-                <div class="search-overlay-layer"></div>
-                <div class="search-overlay-layer"></div>
-                <div class="search-overlay-close">
-                    <span class="search-overlay-close-line"></span>
-                    <span class="search-overlay-close-line"></span>
-                </div>
-                <div class="search-overlay-form">
-                    <form>
-                        <input type="text" class="input-search" placeholder="Search here...">
-                        <button type="button"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
+                            <li class="nav-item">
+                                <a href="index.jsp" class="nav-link">
+                                    Home
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    Flight Booking
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    Ticket Booking
+                                </a>
+                            </li>
+
+                                 <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    Dashboard
+                                </a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <a href="faqs.html" class="nav-link">
+                                    FAQ
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="contact.html" class="nav-link">
+                                    Contact Us
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
             </div>
         </div>
     </div>
+    </header>
 
     <!-- Common Banner Area -->
     <section id="common_banner">
@@ -393,10 +279,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="common_bannner_text">
-                        <h2>Customer dashboard</h2>
+                        <h1>Staff o1 Dashboard</h1>
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li><span><i class="fas fa-circle"></i></span>Customer dashboard</li>
+                            <li><span><i class="fas fa-circle"></i></span>Admin Dashboard</li>
                         </ul>
                     </div>
                 </div>
@@ -411,42 +297,23 @@
                 <div class="col-lg-4">
                     <div class="dashboard_sidebar">
                         <div class="dashboard_sidebar_user">
-                            <img src="assets/img/common/dashboard-user.png" alt="img">
-                            <h3>Sherlyn Chopra</h3>
-                            <p><a href="tel:+00-123-456-789">+00 123 456 789</a></p>
-                            <p><a href="mailto:sherlyn@domain.com">sherlyn@domain.com</a></p>
+                            <img src="assets/img/common/dashboard-user1.png" alt="img">
+                            <h3>
+                                Admin
+                            </h3>
+                            <p>
+                                Name 
+                            </p>
                         </div>
                         <div class="dashboard_menu_area">
                             <ul>
-                                <li><a href="dashboard.html" class="active"><i
-                                            class="fas fa-tachometer-alt"></i>Dashboard</a></li>
-                                <li class="dashboard_dropdown_button" id="dashboard_dropdowns"><i
-                                        class="fas fa-address-card"></i>My bookings
-                                    <span> <i class="fas fa-angle-down"></i></span>
-                                    <div class="booing_sidebar_dashboard" id="show_dropdown_item"
-                                        style="display: none;">
-                                        <ul>
-                                            <li><a href="hotel-booking.html"><i class="fas fa-hotel"></i>Hotel
-                                                    booking</a></li>
-                                            <li><a href="flight-booking.html"><i class="fas fa-paper-plane"></i>Flight
-                                                    booking</a></li>
-                                            <li>
-                                                <a href="tour-booking.html">
-                                                    <i class="fas fa-map"></i>Tour booking
-                                                </a>
-                                            </li>
-                                            <li><a href="booking-history.html">
-                                                    <i class="fas fa-history"></i>Booking history</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a href="my-profile.html"><i class="fas fa-user-circle"></i>My profile</a></li>
-                                <li><a href="wallet.html"><i class="fas fa-wallet"></i>Wallet</a></li>
-                                <li><a href="notification.html"><i class="fas fa-bell"></i>Notifications</a></li>
+                                <li><a href="adminDashboard.jsp" class="active"> <i class="fas fa-tachometer-alt"></i>Flights</a></li>
+                                <li><a href=""><i class="fas fa-wallet"></i>Tickets</a></li>
+                                <li><a href=""><i class="fas fa-user-circle"></i>Staff Members</a></li>
+
                                 <li>
                                     <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-sign-out-alt"></i>Logout
+                                        <i class="fas fa-sign-out-alt"></i><a href="logout.jsp"> Logout </a>
                                     </a>
                                 </li>
                             </ul>
@@ -454,34 +321,8 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="dashboard_main_top">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="dashboard_top_boxed">
-                                    <div class="dashboard_top_icon">
-                                        <i class="fas fa-shopping-bag"></i>
-                                    </div>
-                                    <div class="dashboard_top_text">
-                                        <h3>Total bookings</h3>
-                                        <h1>231</h1>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="dashboard_top_boxed">
-                                    <div class="dashboard_top_icon">
-                                        <i class="fas fa-sync"></i>
-                                    </div>
-                                    <div class="dashboard_top_text">
-                                        <h3>Pending bookings</h3>
-                                        <h1>23</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dashboard_common_table">
-                        <h3>My bookings</h3>
+              <!--       <div class="dashboard_common_table">
+                        <h3>My Flight Bookings</h3>
                         <div class="table-responsive-lg table_common_area">
                             <table class="table">
                                 <thead>
@@ -546,7 +387,189 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> -->
+<div id="container">
+  <div class="shell">
+    
+
+    <!-- Main -->
+    <div id="main">
+      <div class="cl">&nbsp;</div>
+      <!-- Content -->
+      <div id="content">
+        <!-- Box -->
+        <div class="box">
+          <!-- Box Head -->
+          <div class="box-head">
+            <h2 class="left">FLIGHT/TICKETS</h2>
+            <div class="right">
+              <!-- <label>search articles</label> -->
+             <!--  <input type="text" class="field small-field" />
+              <input type="submit" class="button" value="search" /> -->
+            </div>
+          </div>
+          <!-- End Box Head -->
+          <!-- Table -->
+          <div class="table">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <th width="13"><input type="checkbox" class="checkbox" /></th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>Added by</th>
+                <th width="110" class="ac">Content Control</th>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
+                <td>12.05.09</td>
+                <td><a href="#">Administrator</a></td>
+                <td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+              </tr>
+              <tr class="odd">
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
+                <td>12.05.09</td>
+                <td><a href="#">Administrator</a></td>
+                <td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
+                <td>12.05.09</td>
+                <td><a href="#">Administrator</a></td>
+                <td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+              </tr>
+              <tr class="odd">
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
+                <td>12.05.09</td>
+                <td><a href="#">Administrator</a></td>
+                <td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
+                <td>12.05.09</td>
+                <td><a href="#">Administrator</a></td>
+                <td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+              </tr>
+              <tr class="odd">
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
+                <td>12.05.09</td>
+                <td><a href="#">Administrator</a></td>
+                <td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
+                <td>12.05.09</td>
+                <td><a href="#">Administrator</a></td>
+                <td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+              </tr>
+              <tr class="odd">
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">Lorem ipsum dolor sit amet, consectetur.</a></h3></td>
+                <td>12.05.09</td>
+                <td><a href="#">Administrator</a></td>
+                <td><a href="#" class="ico del">Delete</a><a href="#" class="ico edit">Edit</a></td>
+              </tr>
+            </table>
+            <!-- Pagging -->
+            <div class="pagging">
+              <div class="left">Showing 1-12 of 44</div>
+              <div class="right"> <a href="#">Previous</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">245</a> <span>...</span> <a href="#">Next</a> <a href="#">View all</a> </div>
+            </div>
+            <!-- End Pagging -->
+          </div>
+          <!-- Table -->
+        </div>
+        <!-- End Box -->
+        <!-- Box -->
+        <div class="box">
+          <!-- Box Head -->
+          <div class="box-head">
+            <h2>Add New Article</h2>
+          </div>
+          <!-- End Box Head -->
+          <form action="#" method="post">
+            <!-- Form -->
+            <div class="form">
+              <p> <span class="req">max 100 symbols</span>
+                <label>Article Title <span>(Required Field)</span></label>
+                <input type="text" class="field size1" />
+              </p>
+              <p class="inline-field">
+                <label>Date</label>
+                <select class="field size2">
+                  <option value="">23</option>
+                </select>
+                <select class="field size3">
+                  <option value="">July</option>
+                </select>
+                <select class="field size3">
+                  <option value="">2009</option>
+                </select>
+              </p>
+              <p> <span class="req">max 100 symbols</span>
+                <label>Content <span>(Required Field)</span></label>
+                <textarea class="field size1" rows="10" cols="30"></textarea>
+              </p>
+            </div>
+            <!-- End Form -->
+            <!-- Form Buttons -->
+            <div class="buttons">
+              <input type="button" class="button" value="preview" />
+              <input type="submit" class="button" value="submit" />
+            </div>
+            <!-- End Form Buttons -->
+          </form>
+        </div>
+        <!-- End Box -->
+      </div>
+      <!-- End Content -->
+      <!-- Sidebar -->
+      <div id="sidebar">
+        <!-- Box -->
+        <div class="box">
+          <!-- Box Head -->
+          <div class="box-head">
+            <h2>Management</h2>
+          </div>
+          <!-- End Box Head-->
+          <div class="box-content"> <a href="#" class="add-button"><span>Add new Article</span></a>
+            <div class="cl">&nbsp;</div>
+            <p class="select-all">
+              <input type="checkbox" class="checkbox" />
+              <label>select all</label>
+            </p>
+            <p><a href="#">Delete Selected</a></p>
+            <!-- Sort -->
+            <div class="sort">
+              <label>Sort by</label>
+              <select class="field">
+                <option value="">Title</option>
+              </select>
+              <select class="field">
+                <option value="">Date</option>
+              </select>
+              <select class="field">
+                <option value="">Author</option>
+              </select>
+            </div>
+            <!-- End Sort -->
+          </div>
+        </div>
+        <!-- End Box -->
+      </div>
+      <!-- End Sidebar -->
+      <div class="cl">&nbsp;</div>
+    </div>
+    <!-- Main -->
+  </div>
+</div>
+
                     <div class="pagination_area">
                         <ul class="pagination">
                             <li class="page-item">
@@ -570,169 +593,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Cta Area -->
-    <section id="cta_area">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <div class="cta_left">
-                        <div class="cta_icon">
-                            <img src="assets/img/common/email.png" alt="icon">
-                        </div>
-                        <div class="cta_content">
-                            <h4>Get the latest news and offers</h4>
-                            <h2>Subscribe to our newsletter</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="cat_form">
-                        <form id="cta_form_wrappper">
-                            <div class="input-group"><input type="text" class="form-control"
-                                    placeholder="Enter your mail address"><button class="btn btn_theme btn_md"
-                                    type="button">Subscribe</button></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer_area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                    <div class="footer_heading_area">
-                        <h5>Need any help?</h5>
-                    </div>
-                    <div class="footer_first_area">
-                        <div class="footer_inquery_area">
-                            <h5>Call 24/7 for any help</h5>
-                            <h3> <a href="tel:+00-123-456-789">+00 123 456 789</a></h3>
-                        </div>
-                        <div class="footer_inquery_area">
-                            <h5>Mail to our support team</h5>
-                            <h3> <a href="mailto:support@domain.com">support@domain.com</a></h3>
-                        </div>
-                        <div class="footer_inquery_area">
-                            <h5>Follow us on</h5>
-                            <ul class="soical_icon_footer">
-                                <li><a href="#!"><i class="fab fa-facebook"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-twitter-square"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#!"><i class="fab fa-linkedin"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-2 offset-lg-1 col-md-6 col-sm-6 col-12">
-                    <div class="footer_heading_area">
-                        <h5>Company</h5>
-                    </div>
-                    <div class="footer_link_area">
-                        <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="faqs.html">Rewards</a></li>
-                            <li><a href="terms-service.html">Work with Us</a></li>
-                            <li><a href="tour-guides.html">Meet the Team </a></li>
-                            <li><a href="news.html">Blog</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <div class="footer_heading_area">
-                        <h5>Support</h5>
-                    </div>
-                    <div class="footer_link_area">
-                        <ul>
-                            <li><a href="dashboard.html">Account</a></li>
-                            <li><a href="faq.html">Faq</a></li>
-                            <li><a href="testimonials.html">Legal</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="top-destinations.html"> Affiliate Program</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <div class="footer_heading_area">
-                        <h5>Other Services</h5>
-                    </div>
-                    <div class="footer_link_area">
-                        <ul>
-                            <li><a href="top-destinations-details.html">Community program</a></li>
-                            <li><a href="top-destinations-details.html">Investor Relations</a></li>
-                            <li><a href="flight-search-result.html">Rewards Program</a></li>
-                            <li><a href="room-booking.html">PointsPLUS</a></li>
-                            <li><a href="testimonials.html">Partners</a></li>
-                            <li><a href="hotel-search.html">List My Hotel</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <div class="footer_heading_area">
-                        <h5>Top cities</h5>
-                    </div>
-                    <div class="footer_link_area">
-                        <ul>
-                            <li><a href="room-details.html">Chicago</a></li>
-                            <li><a href="hotel-details.html">New York</a></li>
-                            <li><a href="hotel-booking.html">San Francisco</a></li>
-                            <li><a href="tour-search.html">California</a></li>
-                            <li><a href="tour-booking.html">Ohio </a></li>
-                            <li><a href="tour-guides.html">Alaska</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <div class="copyright_area">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="co-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="copyright_left">
-                        <p>Copyright © 2022 All Rights Reserved</p>
-                    </div>
-                </div>
-                <div class="co-lg-6 col-md-6 col-sm-12 col-12">
-                    <div class="copyright_right">
-                        <img src="assets/img/common/cards.png" alt="img">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="go-top">
-        <i class="fas fa-chevron-up"></i>
-        <i class="fas fa-chevron-up"></i>
-    </div>
-
-    <!-- Logout Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body logout_modal_content">
-                    <div class="btn_modal_closed">
-                        <button type="button" data-bs-dismiss="modal" aria-label="Close"><i
-                                class="fas fa-times"></i></button>
-                    </div>
-                    <h3>
-                        Are you sure? <br>
-                        you want to log out.
-                    </h3>
-                    <div class="logout_approve_button">
-                        <button data-bs-dismiss="modal" class="btn btn_theme btn_md">Yes Confirm</button>
-                        <button data-bs-dismiss="modal" class="btn btn_border btn_md">No Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap js -->
