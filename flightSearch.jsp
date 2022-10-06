@@ -579,6 +579,22 @@
                     </div>
                 </div>
                 
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <div class="footer_heading_area">
+                        <h5>Other Services</h5>
+                    </div>
+                    <div class="footer_link_area">
+                        <ul>
+                            <li><a href="top-destinations-details.html">Community program</a></li>
+                            <li><a href="top-destinations-details.html">Investor Relations</a></li>
+                            <li><a href="flight-search-result.html">Rewards Program</a></li>
+                            <li><a href="room-booking.html">PointsPLUS</a></li>
+                            <li><a href="testimonials.html">Partners</a></li>
+                            <li><a href="hotel-search.html">List My Hotel</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
                 
 </body>
 </html>
