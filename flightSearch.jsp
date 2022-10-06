@@ -594,7 +594,24 @@
                         </ul>
                     </div>
                 </div>
-                
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <div class="footer_heading_area">
+                        <h5>Top cities</h5>
+                    </div>
+                    <div class="footer_link_area">
+                        <ul>
+                            <li><a href="room-details.html">Chicago</a></li>
+                            <li><a href="hotel-details.html">New York</a></li>
+                            <li><a href="hotel-booking.html">San Francisco</a></li>
+                            <li><a href="tour-search.html">California</a></li>
+                            <li><a href="tour-booking.html">Ohio </a></li>
+                            <li><a href="tour-guides.html">Alaska</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
                 
 </body>
 </html>
