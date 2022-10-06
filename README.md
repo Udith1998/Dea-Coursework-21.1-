@@ -34,14 +34,14 @@ Developing a web-based application to manage Airline Service Process
 
 ## Roadmap
 - [x] Setting Up the repo for the group
-- [ ] Resource Gathering
-- [ ] Front page development
-- [ ] Sub page develpment
-- [ ] Designing a database and UML model diagram 
-- [ ] Programming of Java Server Pages 
-- [ ] Testing
-- [ ] Use of Design Patterns such as MVC 
-- [ ] Clear demonstrations of your prototype JSPs 
+- [x] Resource Gathering
+- [x] Front page development
+- [x] Sub page develpment
+- [x] Designing a database and UML model diagram 
+- [x] Programming of Java Server Pages 
+- [x] Testing
+- [x] Use of Design Patterns such as MVC 
+- [x] Clear demonstrations of your prototype JSPs 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
