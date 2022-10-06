@@ -535,5 +535,34 @@
             </div>
     </section>
     
+    <!-- Footer  -->
+    <footer id="footer_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                    <div class="footer_heading_area">
+                        <h5>Need any help?</h5>
+                    </div>
+                    <div class="footer_first_area">
+                        <div class="footer_inquery_area">
+                            <h5>Call 24/7 for any help</h5>
+                            <h3> <a href="tel:+00-123-456-789">+00 123 456 789</a></h3>
+                        </div>
+                        <div class="footer_inquery_area">
+                            <h5>Mail to our support team</h5>
+                            <h3> <a href="mailto:support@domain.com">support@domain.com</a></h3>
+                        </div>
+                        <div class="footer_inquery_area">
+                            <h5>Follow us on</h5>
+                            <ul class="soical_icon_footer">
+                                <li><a href="#!"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#!"><i class="fab fa-twitter-square"></i></a></li>
+                                <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#!"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    
 </body>
 </html>
