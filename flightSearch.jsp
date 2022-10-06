@@ -273,8 +273,74 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                             
+                                                            <div class="col-lg-new  col-md-6 col-sm-12 col-12">
+                                                                <div class="form_search_date">
+                                                                    <div class="flight_Search_boxed date_flex_area">
+                                                                        <div class="Journey_date">
+                                                                            <p>Departing On</p>
+                                                                            <input type="date" value="date" name="departingDate" id="departingDate" required="required">
+                                                                            
+                                                                            <span></span>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-lg-new  col-md-6 col-sm-12 col-12">
+                                                                <div class="form_search_date">
+                                                                    <div class="flight_Search_boxed date_flex_area">
+                                                                        <div class="Journey_date">
+                                                                            <p>Passengers</p>
+                                                                            <input type="number" id="passengers" name="passengers" min="1" max="9" placeholder="0" required="required">
+                                                                            
+                                                                            <span></span>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                             
-                                                            
+                                                            <div class="col-lg-new  col-md-6 col-sm-12 col-12">
+                                                                <div class="form_search_date">
+                                                                    <div class="flight_Search_boxed date_flex_area">
+                                                                        <div class="Journey_date">
+                                                                            <p>Class</p>
+                                                                            <select class="select-class" name="fclass" id="fclass" required="required">
+                                                                                <option value="" hidden>Select class</option>
+                                                                                <option value="economy">Economy</option>
+                                                                                <option value="business">Business</option>
+                                                                                <option value="first">First</option>
+                                                                            </select>
+                                                                            
+                                                                            <span></span>
+                                                                            
+                                                                            <% String fclass = request.getParameter("fclass"); %>
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                            <div class="top_form_search_button">
+                                                                <input type="submit" class="btn btn_theme btn_md" value="Search Flights"/>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                                            
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
     
 </body>
 </html>
