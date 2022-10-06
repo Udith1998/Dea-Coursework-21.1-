@@ -340,7 +340,200 @@
                 </div>
             </div>
     </section>
+    
+    <!-- Flight Search Areas -->
+    <section id="explore_area" class="section_padding">
+        <div class="container">
+            <!-- Section Heading -->
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="section_heading_center">
+                        <h2>
+                            <% 
+                                if(depcity==null || depcity=="" && arrcity==null || arrcity==""){
+                                    
+                                    PreparedStatement pst3 = con.prepareStatement("select count(*) from Flight");
+                                    ResultSet rs3 = pst3.executeQuery();
 
+                                    String Countrow="";
+
+                                    while(rs3.next()){
+                                        Countrow = rs3.getString(1);
+                                    }
+
+                                    out.println(Countrow+" Flights Found");
+                                    
+                                }
+                                
+                                else{
+
+                                    PreparedStatement pst4 = con.prepareStatement("select count(*) from Flight where DepCity = ? and ArrCity = ?");                                  
+                                    pst4.setString(1, depcity);
+                                    pst4.setString(2, arrcity);
+
+                                    ResultSet rs4 = pst4.executeQuery();
+                                    
+                                    String Countrow="";
+
+                                    while(rs4.next()){
+                                        Countrow = rs4.getString(1);
+                                    }
+
+                                    out.println(Countrow+" Flights Found");
+                                }
+                            %>
+                        </h2>
+                    </div>
+                </div>
+            </div>              
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="flight_search_result_wrapper" id="flight-search-items">
+                            <!--flight search items-->
+                            <%  
+                                try{    
+                                    if(depcity==null || depcity=="" && arrcity==null || arrcity==""){
+                                        PreparedStatement pst5 = con.prepareStatement("Select * from Flight");
+                                        ResultSet rs5 = pst5.executeQuery();
+
+                                        while(rs5.next()){
+                                %>
+                                            <div class="flight_search_item_wrappper">
+                                            <div class="flight_search_items">
+                                                <div class="multi_city_flight_lists">
+                                                    <div class="flight_multis_area_wrapper">
+                                                        <div class="flight_search_left">
+                                                            <%PreparedStatement pst6 = con.prepareStatement("Select * from Airport where AirportID = '"+rs5.getString("DepAirport")+"'");
+                                                            ResultSet rs6 = pst6.executeQuery();
+                                                            rs6.next();%>
+
+                                                            <div class="flight_search_destination">
+                                                                <p><%out.println(rs5.getString("DepTime"));%></p>
+                                                                <h3><%out.println(rs6.getString("City"));%></h3>
+                                                                <h6><%out.println(rs6.getString("Name"));%></h6>
+                                                            </div>
+                                                        </div>
+                                                        <div class="flight_search_middel">
+                                                            <div class="flight_right_arrow1">
+                                                                <img src="assets/img/icon/right_arrow1.png" alt="icon">
+                                                                <h6>Non-stop</h6>
+                                                                <p><%out.println(rs5.getString("AirTime"));%></p>
+                                                            </div>
+
+                                                            <%PreparedStatement pst7 = con.prepareStatement("Select * from Airport where AirportID = '"+rs5.getString("ArrAirport")+"'");
+                                                            ResultSet rs7 = pst7.executeQuery();
+                                                            rs7.next();%>
+
+                                                            <div class="flight_search_destination">
+                                                                <p><%out.println(rs5.getString("ArrTime"));%></p>
+                                                                <h3><%out.println(rs7.getString("City"));%></h3>
+                                                                <h6><%out.println(rs7.getString("Name"));%></h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="flight_search_right">
+                                                    <p>Flights are available from</p>
+                                                    <h2><%out.println("$"+rs5.getString("AirFare"));%></h2>
+                                                    <a href="flight-booking-submission.html" class="btn btn_theme btn_sm">Book
+                                                        now</a>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        <%}
+                                    }
+                                    else{
+                                        PreparedStatement pst5 = con.prepareStatement("select *,round((AirFare*1.9),2) as Business,round((AirFare*4.3),2) as First from flight where DepCity = ? and ArrCity = ?");
+                                        pst5.setString(1, depcity);
+                                        pst5.setString(2, arrcity); 
+
+                                        ResultSet rs5 = pst5.executeQuery();
+
+                                        while(rs5.next()){%>
+                                                <div class="flight_search_item_wrappper">
+                                                <div class="flight_search_items">
+                                                    <div class="multi_city_flight_lists">
+                                                        <div class="flight_multis_area_wrapper">
+                                                            <div class="flight_search_left">
+
+                                                                <%PreparedStatement pst6 = con.prepareStatement("Select Name from Airport where City = '"+rs5.getString("DepCity")+"'");
+                                                                ResultSet rs6 = pst6.executeQuery();
+                                                                rs6.next();%>
+
+                                                                <div class="flight_search_destination">
+                                                                    <p><%out.println(rs5.getString("DepTime"));%></p>
+                                                                    <h3><%out.println(depcity);%></h3>
+                                                                    <h6><%out.println(rs6.getString("Name"));%></h6>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="flight_search_middel">
+                                                                <div class="flight_right_arrow1">
+                                                                    <img src="assets/img/icon/right_arrow1.png" alt="icon">
+                                                                    <h6>Non-stop</h6>
+                                                                    <p><%out.println(rs5.getString("AirTime"));%></p>
+                                                                </div>
+
+                                                                <%PreparedStatement pst7 = con.prepareStatement("Select Name from Airport where City = '"+rs5.getString("ArrCity")+"'");
+                                                                ResultSet rs7 = pst7.executeQuery();
+                                                                rs7.next();%>
+                                                                
+                                                                <div class="flight_search_destination">
+                                                                    <p><%out.println(rs5.getString("ArrTime"));%></p>
+                                                                    <h3><%out.println(arrcity);%></h3>
+                                                                    <h6><%out.println(rs7.getString("Name"));%></h6>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <%
+                                                        if(fclass.equals("economy")){
+                                                    %>
+                                                            <div class="flight_search_right">
+                                                                <p>Economy class</p>
+                                                                <h2><%out.println("$"+rs5.getString("AirFare"));%></h2>
+                                                                <a href="flight-booking-submission.html" class="btn btn_theme btn_sm">Book
+                                                                    now</a>
+                                                            </div>
+                                                    <%
+                                                        }
+
+                                                        else if(fclass.equals("business")){
+                                                    %>
+                                                            <div class="flight_search_right">
+                                                                <p>Business class</p>
+                                                                <h2><%out.println("$"+rs5.getString("Business"));%></h2>
+                                                                <a href="flight-booking-submission.html" class="btn btn_theme btn_sm">Book
+                                                                    now</a>
+                                                            </div>
+                                                    <%  }
+                                                        else if(fclass.equals("first")){
+                                                    %>
+                                                            <div class="flight_search_right">
+                                                                <p>First class</p>
+                                                                <h2><%out.println("$"+rs5.getString("First"));%></h2>
+                                                                <a href="flight-booking-submission.html" class="btn btn_theme btn_sm">Book
+                                                                    now</a>
+                                                            </div>
+                                                    <%  }   %>
+                                                </div>
+                                                </div>
+                                    <%  }        
+                                    }
+                                }catch(Exception e){ 
+                                    out.println(e);
+                                }%>        
+                        </div>
+                        <div class="load_more_flight">
+                            <button class="btn btn_md" id="load-more"><i class="fas fa-spinner"></i> Load more..</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
     
 </body>
 </html>
