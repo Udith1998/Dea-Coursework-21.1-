@@ -612,6 +612,21 @@
             </div>
         </div>
     </footer>
-                
+     
+    <div class="copyright_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="co-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="copyright_left">
+                        <p>Copyright © 2022 All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="go-top">
+        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-chevron-up"></i>
+    </div>
 </body>
 </html>
