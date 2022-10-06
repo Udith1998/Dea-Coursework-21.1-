@@ -184,5 +184,97 @@
         </div>
     </section> 
     
+   <!-- Form Area -->
+    <section id="theme_search_form_tour" class="fligth_top_search_main_form_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="theme_search_form_area">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="flight_categories_search">
+                                            <ul class="nav nav-tabs" role="tablist">
+                                                <li class="nav-item" role="presentation">
+                                                    <p class="nav-link active" id="oneway-tab"
+                                                        data-bs-target="#oneway_flight">One Way</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tab-content" id="myTabContent1">
+                                    <div class="tab-pane fade show active" id="oneway_flight" role="tabpanel"
+                                        aria-labelledby="oneway-tab">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="oneway_search_form">
+                                                    
+                                                    <form action="flightBooking.jsp" method="post" id="flight-search-form" >
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                                                <div class="flight_Search_boxed">
+                                                                    <p>Departure City</p>
+                                                                    <div class="select-city">
+                                                                        <select class="select-city" id="depcity" name="depcity" required="required">
+                                                                            <option value="" hidden>Select a city</option>
+                                                                            <%
+                                                                            PreparedStatement pst1 = con.prepareStatement("select distinct DepCity,Country from flight join airport on flight.DepAirport = airport.AirportID");
+                                                                            ResultSet rs1 = pst1.executeQuery();
+
+                                                                            while(rs1.next()){%>
+                                                                                <option value="<%=rs1.getString("DepCity")%>">
+                                                                                    <%out.println(rs1.getString("DepCity")+", "+rs1.getString("Country"));%>
+                                                                                </option>
+                                                                            <%}%>
+                                                                        </select>
+                                                                    </div>
+                                                                    
+                                                                    <% String depcity = request.getParameter("depcity"); %>
+                                                                        
+                                                                    <span></span>
+                                                                    
+                                                                    <div class="plan_icon_posation">
+                                                                        <i class="fas fa-plane-departure"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                                                <div class="flight_Search_boxed">
+                                                                    <p>Arrival City</p>
+                                                                    
+                                                                    <div class="select-city">
+                                                                        <select class="select-city" name="arrcity" id="arrcity" required="required">
+                                                                            <option value="" hidden>Select a city</option>
+                                                                            <%
+                                                                            PreparedStatement pst2 = con.prepareStatement("select distinct ArrCity,Country from flight join airport on flight.ArrAirport = airport.AirportID");
+                                                                            ResultSet rs2 = pst2.executeQuery();
+
+                                                                            while(rs2.next()){%>
+                                                                            <option value="<%=rs2.getString("ArrCity")%>"> 
+                                                                                    <%out.println(rs2.getString("ArrCity")+", "+rs2.getString("Country"));%>
+                                                                            </option>
+                                                                            <%}%>
+                                                                        </select>
+                                                                    </div>
+                                                                    
+                                                                    <% String arrcity = request.getParameter("arrcity"); %>
+                                                                        
+                                                                    <span></span>
+                                                                    
+                                                                    <div class="plan_icon_posation">
+                                                                        <i class="fas fa-plane-arrival"></i>
+                                                                    </div>
+                                                                    <div class="range_plan">
+                                                                        <i class="fas fa-long-arrow-alt-right"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            
+    
 </body>
 </html>
