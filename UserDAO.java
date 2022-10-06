@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import modelPackage.user;
 
-//Data Access Object- it's design paten to seperate database operations
+
 public class UserDAO {
 	
 	//Connect to the DB
@@ -34,7 +34,7 @@ public class UserDAO {
 	//insert staff1 members
 		public  void addStaff1(user user) {
 			connectToDB();
-			String sql="INSERT INTO staff01(Fname,Lname,nic,mobile,email,uname,pwd) VALUES (?,?,?,?,?,?,?);";
+			String sql="INSERT INTO staff1(Fname,Lname,nic,mobile,email,uname,pwd) VALUES (?,?,?,?,?,?,?);";
 			try {
 				ps.setString(1,user.getFname());
 				ps.setString(2,user.getLname());
@@ -55,7 +55,7 @@ public class UserDAO {
 		public boolean updateStaff1(user user) {
 			boolean rawupdated = false;
 			connectToDB();
-			String sql="UPDATE staff01 SET Fname=?,Lname=?,nic=?,mobile=?,email=?,uname=?,pwd=? WHERE id=? ;";
+			String sql="UPDATE staff1 SET Fname=?,Lname=?,nic=?,mobile=?,email=?,uname=?,pwd=? WHERE id=? ;";
 			try {
 				ps.setString(1,user.getFname());
 				ps.setString(2,user.getLname());
@@ -77,7 +77,7 @@ public class UserDAO {
 		public user selectStaff1(int id) {
 			user user=null;
 			connectToDB();
-			String sql="SELECT * FROM staff01 WHERE id=?;";
+			String sql="SELECT * FROM staff1 WHERE id=?;";
 			try {
 				ps.setInt(1,id);
 				ResultSet rs= ps.executeQuery(sql);	
@@ -103,7 +103,7 @@ public class UserDAO {
 		public ArrayList<user> selectAllStaff1() {
 			ArrayList<user> users=new ArrayList<>();
 			connectToDB();
-			String sql="SELECT * FROM staff01;";
+			String sql="SELECT * FROM staff1;";
 			try {
 				ResultSet rs= ps.executeQuery(sql);	
 				
@@ -129,7 +129,7 @@ public class UserDAO {
 		public boolean deletestaff1(int id) {
 			boolean rawDeleted = false;
 			connectToDB();
-			String sql="DELETE FROM staff01 WHERE id=?;";
+			String sql="DELETE FROM staff1 WHERE id=?;";
 			try {
 				ps.setInt(1,id);
 				rawDeleted= ps.executeUpdate(sql) >0;
@@ -143,7 +143,7 @@ public class UserDAO {
 		//insert staff2 members
 				public  void addStaff2(user user) {
 					connectToDB();
-					String sql="INSERT INTO staff02(Fname,Lname,nic,mobile,email,uname,pwd) VALUES (?,?,?,?,?,?,?);";
+					String sql="INSERT INTO staff2(Fname,Lname,nic,mobile,email,uname,pwd) VALUES (?,?,?,?,?,?,?);";
 					try {
 						ps.setString(1,user.getFname());
 						ps.setString(2,user.getLname());
@@ -164,7 +164,7 @@ public class UserDAO {
 				public boolean updateStaff2(user user) {
 					boolean rawupdated = false;
 					connectToDB();
-					String sql="UPDATE staff02 SET Fname=?,Lname=?,nic=?,mobile=?,email=?,uname=?,pwd=? WHERE id=? ;";
+					String sql="UPDATE staff2 SET Fname=?,Lname=?,nic=?,mobile=?,email=?,uname=?,pwd=? WHERE id=? ;";
 					try {
 						ps.setString(1,user.getFname());
 						ps.setString(2,user.getLname());
@@ -186,7 +186,7 @@ public class UserDAO {
 				public user selectStaff2(int id) {
 					user user=null;
 					connectToDB();
-					String sql="SELECT * FROM staff02 WHERE id=?;";
+					String sql="SELECT * FROM staff2 WHERE id=?;";
 					try {
 						ps.setInt(1,id);
 						ResultSet rs= ps.executeQuery(sql);	
@@ -212,7 +212,7 @@ public class UserDAO {
 				public ArrayList<user> selectAllStaff2() {
 					ArrayList<user> users=new ArrayList<>();
 					connectToDB();
-					String sql="SELECT * FROM staff02;";
+					String sql="SELECT * FROM staff2;";
 					try {
 						ResultSet rs= ps.executeQuery(sql);	
 						
@@ -238,7 +238,7 @@ public class UserDAO {
 				public boolean deletestaff2(int id) {
 					boolean rawDeleted = false;
 					connectToDB();
-					String sql="DELETE FROM staff02 WHERE id=?;";
+					String sql="DELETE FROM staff2 WHERE id=?;";
 					try {
 						ps.setInt(1,id);
 						rawDeleted= ps.executeUpdate(sql) >0;
@@ -247,5 +247,6 @@ public class UserDAO {
 					}
 					return rawDeleted;	
 				}
+
 }
 

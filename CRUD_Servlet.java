@@ -36,56 +36,49 @@ public class CRUD_Servlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// take the form number for staff1=1 and staff2=2
-		String formNo=request.getParameter("formNo");	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		String action = request.getServletPath();
-		if(formNo=="1") {
 			switch(action){
-			case "/new":
+			case "/newStaff1":
 				newStaff1form(request,response);
 				break;
-			case "/insert":
+			case "/insertStaff1":
 				insertStaff1(request,response);
 				break;
-			case "/edit":
+			case "/editStaff1":
 				showEditStaff1Form(request,response);
 				break;
-			case "/delete":
+			case "/deleteStaff1":
 				deleteStaff1(request,response);
 				break;
-			case "/update":
+			case "/updateStaff1":
 				updateStaff1(request,response);
 				break;
-			default:
-				staff1List(request,response);
-				break;
-			}
-		}
-		if(formNo=="2") {
-			switch(action){
-			case "/new":
+
+
+			case "/newStaff2":
 				newStaff2form(request,response);
 				break;
-			case "/insert":
+			case "/insertStaff2":
 				insertStaff2(request,response);
 				break;
-			case "/edit":
+			case "/editStaff2":
 				showEditStaff2Form(request,response);
 				break;
-			case "/delete":
+			case "/deleteStaff2":
 				deleteStaff2(request,response);
 				break;
-			case "/update":
+			case "/updateStaff2":
 				updateStaff2(request,response);
 				break;
+				
+				
 			default:
-				staff2List(request,response);
+				home(request,response);
 				break;
 			}
-		}
-		
+
 	}
 	
 //////////////////////////////////////////////////////////////
@@ -136,10 +129,8 @@ public class CRUD_Servlet extends HttpServlet {
 		response.sendRedirect("userListhere.jsp");
 	}
 	
-	private void staff1List(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<user> userlist=userDAO.selectAllStaff1();
-		request.setAttribute("user", userlist);
-		RequestDispatcher dispatcher= request.getRequestDispatcher("user_form_here.jsp");
+	private void home(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -189,13 +180,6 @@ public class CRUD_Servlet extends HttpServlet {
 		user updatestaff = new user(id,Fname,Lname,email,mobile,uname,pwd,nic);
 		userDAO.updateStaff2(updatestaff);
 		response.sendRedirect("user2Listhere.jsp");
-	}
-	
-	private void staff2List(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<user> userlist=userDAO.selectAllStaff2();
-		request.setAttribute("user", userlist);
-		RequestDispatcher dispatcher= request.getRequestDispatcher("user2_form_here.jsp");
-		dispatcher.forward(request, response);
 	}
 	
 }
