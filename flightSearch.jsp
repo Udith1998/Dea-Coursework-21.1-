@@ -629,6 +629,23 @@
         <i class="fas fa-chevron-up"></i>
     </div>
     
-    
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    <!-- Meanu js -->
+    <script src="assets/js/jquery.meanmenu.js"></script>
+    <!-- Range js -->
+    <script src="assets/js/nouislider.min.js"></script>
+    <script src="assets/js/wNumb.js"></script>
+    <!-- owl carousel js -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- wow.js -->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- Custom js -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/add-form.js"></script>
+    <script src="assets/js/form-dropdown.js"></script>
+ 
+   
 </body>
 </html>
