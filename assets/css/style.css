@@ -4290,7 +4290,7 @@ textarea {
 }
 
 .flight_search_right h2 {
-    padding-top: 10px;
+    padding: 10px 0px 10px 0px;
 }
 
 .flight_search_right h2 sup {
@@ -5161,4 +5161,9 @@ option{
 
 .col-lg-new{
     flex:0 0 auto;width:16.6%
+}
+
+.form-control select{
+    max-width: 328px;
+    min-width: 328px;
 }
