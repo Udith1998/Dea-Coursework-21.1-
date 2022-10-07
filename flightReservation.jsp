@@ -143,3 +143,8 @@
                                         Home
                                     </a>
                                 </li>
+  <li class="nav-item">
+                                    <a href="customerDashboard.jsp" class="nav-link">
+                                        Dashboard
+                                    </a>
+                                </li>
