@@ -130,8 +130,8 @@
                         </div>
                         <div class="dashboard_menu_area">
                             <ul>
-                                <li><a href="adminDashboard.jsp" class="active"> <i class="fas fa-plane"></i>Flights</a></li>
-                                <li><a href="adminDashboardTickets.jsp"><i class="fas fa-wallet"></i>Tickets</a></li>
+                                <li><a href="adminDashboard.jsp"> <i class="fas fa-plane"></i>Flights</a></li>
+                                <li><a href="adminDashboardTickets.jsp" class="active"><i class="fas fa-wallet"></i>Tickets</a></li>
                                 <li><a href="adminDashboardStaff.jsp"><i class="fas fa-id-card-alt"></i>Staff Members</a></li>
                                 <li><a href="adminDashboardClient.jsp"><i class="fas fa-user-circle"></i>Clients</a></li>
 
@@ -146,7 +146,7 @@
                 </div>
                 <div class="col-lg-10">
                     <div class="dashboard_common_table">
-                        <h3>Flights</h3>
+                        <h3>Tickets</h3>
                         <div class="table-responsive-lg table_common_area">
                             <table class="table">
                                 
@@ -154,31 +154,33 @@
                                     Class.forName("com.mysql.jdbc.Driver");
                                     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PhoenixAirlinesDB","root","");
                                     
-                                    PreparedStatement pst1 = con.prepareStatement("select * from flight");
+                                    PreparedStatement pst1 = con.prepareStatement("select * from ticket");
                                     ResultSet rs1 = pst1.executeQuery();
                                 %>
                                 
                                     <thead>
                                         <tr>
+                                            <th>Ticket ID</th>
                                             <th>Flight ID</th>
-                                            <th>Departure</th>
-                                            <th>Departure Time</th>
-                                            <th>Arrival</th>
-                                            <th>Arrival Time</th>
-                                            <th>Air Time</th>
-                                            <th>Basic Air fare</th>
+                                            <th>Class</th>
+                                            <th>Departure Date</th>
+                                            <th>Username</th>
+                                            <th>Passenger Name</th>
+                                            <th>Passport No</th>
+                                            <th>Contact Details</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <%while(rs1.next()){%>
                                             <tr>
+                                                <td><%="TID_"+rs1.getString("ID")%></td>
                                                 <td><%=rs1.getString("FlightID")%></td>
-                                                <td><%=rs1.getString("DepAirport")+", "+rs1.getString("DepCity")%></td>
-                                                <td><%=rs1.getString("DepTime")%></td>
-                                                <td><%=rs1.getString("ArrAirport")+", "+rs1.getString("ArrCity")%></td>
-                                                <td><%=rs1.getString("ArrTime")%></td>
-                                                <td><%=rs1.getString("AirTime")%></td>
-                                                <td><%=rs1.getString("AirFare")%></td>
+                                                <td><%=rs1.getString("Class")%></td>
+                                                <td><%=rs1.getString("DepartureDate")%></td>
+                                                <td><%=rs1.getString("Username")%></td>
+                                                <td><%=rs1.getString("Title")+". "+rs1.getString("PassengerName")%></td>
+                                                <td><%=rs1.getString("PassportNo")%></td>
+                                                <td><%=rs1.getString("ContactFName")+" "+rs1.getString("ContactLName")%><br><%=rs1.getString("Email")%><br><%=rs1.getString("MobileNo")%></td>
                                             </tr>
                                         <%}%>
                                     </tbody>
@@ -202,7 +204,7 @@
     <!-- Custom js -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/add-form.js"></script>
-    
+
 </body>
 
 </html>

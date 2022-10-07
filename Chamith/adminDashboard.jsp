@@ -76,6 +76,12 @@
 
                             <li class="nav-item">
                                 <a href="#" class="nav-link">
+                                    Ticket Booking
+                                </a>
+                            </li>
+
+                                 <li class="nav-item">
+                                <a href="#" class="nav-link">
                                     Dashboard
                                 </a>
                             </li>
@@ -122,68 +128,118 @@
     <section id="dashboard_main_arae" class="section_padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-4">
                     <div class="dashboard_sidebar">
                         <div class="dashboard_sidebar_user">
                             <img src="assets/img/common/dashboard-user1.png" alt="img">
-                            <h3>Admin</h3>
+                            <h3>
+                                Admin
+                            </h3>
+                            <p>
+                                Name 
+                            </p>
                         </div>
                         <div class="dashboard_menu_area">
                             <ul>
-                                <li><a href="adminDashboard.jsp" class="active"> <i class="fas fa-plane"></i>Flights</a></li>
-                                <li><a href="adminDashboardTickets.jsp"><i class="fas fa-wallet"></i>Tickets</a></li>
-                                <li><a href="adminDashboardStaff.jsp"><i class="fas fa-id-card-alt"></i>Staff Members</a></li>
-                                <li><a href="adminDashboardClient.jsp"><i class="fas fa-user-circle"></i>Clients</a></li>
+                                <li><a href="adminDashboard.jsp" class="active"> <i class="fas fa-tachometer-alt"></i>Flights</a></li>
+                                <li><a href=""><i class="fas fa-wallet"></i>Tickets</a></li>
+                                <li><a href=""><i class="fas fa-user-circle"></i>Staff Members</a></li>
 
                                 <li>
                                     <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-sign-out-alt"></i><a href="adminLogout.jsp"> Logout </a>
+                                        <i class="fas fa-sign-out-alt"></i><a href="logout.jsp"> Logout </a>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <div class="dashboard_common_table">
-                        <h3>Flights</h3>
+                        <h3>My Flight Bookings</h3>
                         <div class="table-responsive-lg table_common_area">
                             <table class="table">
-                                
-                                <%
-                                    Class.forName("com.mysql.jdbc.Driver");
-                                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PhoenixAirlinesDB","root","");
-                                    
-                                    PreparedStatement pst1 = con.prepareStatement("select * from flight");
-                                    ResultSet rs1 = pst1.executeQuery();
-                                %>
-                                
-                                    <thead>
-                                        <tr>
-                                            <th>Flight ID</th>
-                                            <th>Departure</th>
-                                            <th>Departure Time</th>
-                                            <th>Arrival</th>
-                                            <th>Arrival Time</th>
-                                            <th>Air Time</th>
-                                            <th>Basic Air fare</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%while(rs1.next()){%>
-                                            <tr>
-                                                <td><%=rs1.getString("FlightID")%></td>
-                                                <td><%=rs1.getString("DepAirport")+", "+rs1.getString("DepCity")%></td>
-                                                <td><%=rs1.getString("DepTime")%></td>
-                                                <td><%=rs1.getString("ArrAirport")+", "+rs1.getString("ArrCity")%></td>
-                                                <td><%=rs1.getString("ArrTime")%></td>
-                                                <td><%=rs1.getString("AirTime")%></td>
-                                                <td><%=rs1.getString("AirFare")%></td>
-                                            </tr>
-                                        <%}%>
-                                    </tbody>
+                                <thead>
+                                    <tr>
+                                        <th>Sl no.</th>
+                                        <th>Booking ID</th>
+                                        <th>Booking type</th>
+                                        <th>Booking amount</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="complete">Completed</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>02.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="complete">Completed</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>03.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="complete">Completed</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>04.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="complete">Completed</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>05.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="cancele">Canceled</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td>06.</td>
+                                        <td>#JK589V80</td>
+                                        <td>Hotel</td>
+                                        <td>$754.00</td>
+                                        <td class="complete">Completed</td>
+                                        <td><i class="fas fa-eye"></i></td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="pagination_area">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -202,7 +258,7 @@
     <!-- Custom js -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/add-form.js"></script>
-    
+
 </body>
 
 </html>
