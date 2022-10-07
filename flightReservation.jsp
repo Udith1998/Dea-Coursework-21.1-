@@ -360,3 +360,23 @@
                                                     <input type="text" class="form-control bg_input" name="mobileNo" id="mobileNo" placeholder="Mobile mobileNo*" required="required"/>
                                                 </div>   
                                             </div>
+                                              <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control bg_input" name="email" id="email" placeholder="Email address*" required="required"/>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <center>
+                                            <div style="margin-bottom: 50px" class="booking_tour_form_submit">
+                                                <input type="submit" class="btn btn_theme btn_md" value="Submit"/>
+                                            </div>
+                                        </center>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
