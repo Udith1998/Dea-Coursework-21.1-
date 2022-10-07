@@ -397,3 +397,14 @@
                             <h5>Mail to our support team</h5>
                             <h3> <a href="mailto:support@domain.com">support@domain.com</a></h3>
                         </div>
+ <div class="footer_inquery_area">
+                            <h5>Follow us on</h5>
+                            <ul class="soical_icon_footer">
+                                <li><a href="#!"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="#!"><i class="fab fa-twitter-square"></i></a></li>
+                                <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#!"><i class="fab fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
