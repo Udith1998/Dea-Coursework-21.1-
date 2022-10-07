@@ -102,3 +102,13 @@
  <div class="dropdown-menu language-dropdown-menu">
                                         <a class="dropdown-item" href="#">USD</a>
                                         <a class="dropdown-item" href="#">LKR</a>
+                               </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <%}%>
+                
+                </div>
+            </div>
+        </div>
