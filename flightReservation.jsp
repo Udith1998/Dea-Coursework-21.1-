@@ -131,3 +131,5 @@
                         <a class="navbar-brand" href="index.jsp">
                             <img src="assets/img/logo.png" alt="logo">
                         </a>
+ <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
