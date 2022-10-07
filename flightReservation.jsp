@@ -251,3 +251,25 @@
                                                     <p><%out.println(rs1.getString("AirTime"));%></p>
                                                 </div>
 <div class="flight_search_right">
+ <%
+                                        if(fclass.equals("economy")){
+                                            String cost = rs1.getString("AirFare");
+                                    %>
+                                            <p>Economy Class</p>
+                                            <h2><%="$"+cost%></h2>
+                                    <%  }
+
+                                        else if(fclass.equals("business")){
+                                            String cost = rs1.getString("Business");
+                                    %>
+                                            <p>Business Class</p>
+                                            <h2><%="$"+cost%></h2>
+                                    <%  }
+
+                                        else if(fclass.equals("first")){
+                                            String cost = rs1.getString("First");
+                                    %>
+                                            <p>First Class</p>
+                                            <h2><%="$"+cost%></h2>
+                                    <%  }
+                                    %>
