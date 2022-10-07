@@ -158,3 +158,13 @@
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         Contact Us
+              </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
