@@ -24,6 +24,7 @@ public class RegistraionJava {
 	}
 	
 	// Sign up process
+	//save clients details in the client table
 	public void Signup(String uname, String pwd) {
 		connectToDB();
 		String sql="INSERT INTO client(uname,upwd)VALUES('"+uname+"','"+pwd+"');";

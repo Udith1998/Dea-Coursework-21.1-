@@ -36,13 +36,13 @@ public class Login_Servlet extends HttpServlet {
 		String uname= request.getParameter("uname");
 		String pwd=request.getParameter("pwd");
 		PrintWriter pw =response.getWriter();
-		
+		//take care of the admin login
 		String url="jdbc:mysql://localhost:3306/registration";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con;
 			con = DriverManager.getConnection(url,"root","");
-			String sql="SELECT * FROM admin WHERE AdminUname=? AND AdminPwd=?;";
+			String sql="SELECT * FROM admin WHERE uname=? AND pwd=?;";
 			PreparedStatement ps= con.prepareStatement(sql);
 			ps.setString(1, uname);
 			ps.setString(2,pwd);

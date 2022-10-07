@@ -40,6 +40,7 @@ public class CRUD_Servlet extends HttpServlet {
 		
 		String action = request.getServletPath();
 			switch(action){
+// take care of the staff1 CRUD operations
 			case "/newStaff1":
 				newStaff1form(request,response);
 				break;
@@ -56,7 +57,7 @@ public class CRUD_Servlet extends HttpServlet {
 				updateStaff1(request,response);
 				break;
 
-
+// take care of the staff2 CRUD operations
 			case "/newStaff2":
 				newStaff2form(request,response);
 				break;
