@@ -5008,10 +5008,9 @@ textarea {
   margin: 0;
   display: grid;
   grid-template-rows: 500px 100px;
-  grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+  grid-template-columns: 1fr 30px 30px 30px 30px 30px 30px 1fr;
   align-items: center;
   justify-items: center;
-  background-color:#111f39;
 }
 
 main#carousel {
@@ -5166,4 +5165,13 @@ option{
 .form-control select{
     max-width: 328px;
     min-width: 328px;
+}
+
+.btn-link :hover{
+    color: #111F39;
+}
+
+.filter-control {
+    border: none;
+    font-size: 16px;
 }
