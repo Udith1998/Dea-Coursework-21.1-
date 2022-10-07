@@ -60,3 +60,8 @@
         <!-- Header Area -->
     <header class="main_header_arae">
         <!-- Top Bar -->
+         <div class="topbar-area">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                    </div>
