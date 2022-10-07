@@ -211,3 +211,6 @@
                                 } else { 
                                     passengerCount = 0; 
                                 }
+                                 PreparedStatement pst1 = con.prepareStatement("select * from Flight where FlightID = ?");
+                                pst1.setString(1,FlightID);
+                                ResultSet rs1 = pst1.executeQuery();
