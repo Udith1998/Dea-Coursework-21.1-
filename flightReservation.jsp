@@ -38,3 +38,5 @@
     <!-- Rangeslider css -->
      <link rel="stylesheet" href="assets/css/nouislider.css" />
     <!-- owl.theme.default css -->
+     <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
+    <!-- navber css -->
