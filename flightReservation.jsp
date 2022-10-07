@@ -273,3 +273,14 @@
                                             <h2><%="$"+cost%></h2>
                                     <%  }
                                     %>
+  <%
+                                        if(passengerCount>1){
+                                    %>    
+                                            <p><%=passengerCount%> Passengers | <%=departingDate%></p>
+                                            
+                                    <%  } else{%>
+                                    
+                                            <p><%=passengerCount%> Passenger | <%=departingDate%></p>
+                                            
+                                    <%  }%>
+                                        
