@@ -49,3 +49,5 @@
      <link rel="stylesheet" href="assets/css/responsive.css" />
     <!-- Favicon -->
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    </head>
+    
