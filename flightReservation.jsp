@@ -189,3 +189,8 @@
             </div>
         </div>
     </section>
+  <!-- Selected flight Area -->
+    <section id="explore_area" class="section_padding">
+        <div class="container">
+            <div class="row">
+                <div class="row justify-content-center">
