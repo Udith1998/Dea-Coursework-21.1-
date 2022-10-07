@@ -299,3 +299,16 @@
             </div>
         </center>
         
+ </section>
+                            
+    <!-- Tour Booking Submission Areas -->
+    <section id="tour_booking_submission">
+        <div class="container">
+            <div class="row">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="tou_booking_form_Wrapper">
+                            <div class="booking_tour_form">
+                                <center>
+                                    <h3 class="heading_theme">Flight Reservation Form</h3>
+                                </center>
