@@ -168,3 +168,11 @@
             </div>
         </div>
     </header>
+ <!-- Common Banner Area -->
+    <section id="common_banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="common_bannner_text">
+                        <h2>Flight Reservation</h2>
+                        <ul>
