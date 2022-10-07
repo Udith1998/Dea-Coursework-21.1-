@@ -89,3 +89,8 @@
                         </ul>
                     </div>
                 <%}
+ else{%>
+                    <div class="col-lg-6 col-md-6">
+                        <ul class="topbar-others-options">
+                            <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
+                            <li>
