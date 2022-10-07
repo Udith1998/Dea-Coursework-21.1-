@@ -148,3 +148,13 @@
                                         Dashboard
                                     </a>
                                 </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        FAQ
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        Contact Us
