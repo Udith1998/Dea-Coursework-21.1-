@@ -26,3 +26,6 @@
 <!-- Title -->
     <title>Flight Reservation - PHOENIX AIRLINES </title>
     <!-- Bootstrap css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- animate css -->
+    
