@@ -40,3 +40,5 @@
     <!-- owl.theme.default css -->
      <link rel="stylesheet" href="assets/css/owl.theme.default.min.css" />
     <!-- navber css -->
+       <link rel="stylesheet" href="assets/css/navber.css" />
+    <!-- meanmenu css -->
