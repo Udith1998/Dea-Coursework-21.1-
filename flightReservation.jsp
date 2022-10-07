@@ -194,3 +194,7 @@
         <div class="container">
             <div class="row">
                 <div class="row justify-content-center">
+ <div class="col-lg-9">
+                        <div class="flight_search_result_wrapper" id="flight-search-items">
+    
+                            <% 
