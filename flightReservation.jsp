@@ -180,3 +180,7 @@
                             <li><span><i class="fas fa-circle"></i></span><a href="flightBooking.jsp">Flight Booking</a></li>
                             <li><span><i class="fas fa-circle"></i></span>Flight Reservation</li>
                         </ul>
+<li><a href="index.jsp">Home</a></li>
+                            <li><span><i class="fas fa-circle"></i></span><a href="flightBooking.jsp">Flight Booking</a></li>
+                            <li><span><i class="fas fa-circle"></i></span>Flight Reservation</li>
+                        </ul>
