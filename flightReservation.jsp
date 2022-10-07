@@ -36,4 +36,5 @@
     <!-- owl.carousel css -->
      <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
     <!-- Rangeslider css -->
-    
+     <link rel="stylesheet" href="assets/css/nouislider.css" />
+    <!-- owl.theme.default css -->
