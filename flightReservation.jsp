@@ -408,3 +408,18 @@
                         </div>
                     </div>
                 </div>
+ <div class="col-lg-2 offset-lg-1 col-md-6 col-sm-6 col-12">
+                    <div class="footer_heading_area">
+                        <h5>Company</h5>
+                    </div>
+                    <div class="footer_link_area">
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="testimonials.html">Testimonials</a></li>
+                            <li><a href="faqs.html">Rewards</a></li>
+                            <li><a href="terms-service.html">Work with Us</a></li>
+                            <li><a href="tour-guides.html">Meet the Team </a></li>
+                            <li><a href="news.html">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
