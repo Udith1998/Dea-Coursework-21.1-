@@ -42,3 +42,5 @@
     <!-- navber css -->
        <link rel="stylesheet" href="assets/css/navber.css" />
     <!-- meanmenu css -->
+ <link rel="stylesheet" href="assets/css/meanmenu.css" />
+    <!-- Style css -->
