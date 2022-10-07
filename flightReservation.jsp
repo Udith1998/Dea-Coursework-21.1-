@@ -65,3 +65,8 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                     </div>
+ <%if (session.getAttribute("username") == null){%>
+                    <div class="col-lg-6 col-md-6">
+                        <ul class="topbar-others-options">
+                            <li><a href="login.jsp">Login</a></li>
+                            <li> <a href="signup.jsp">Sign up</a>
