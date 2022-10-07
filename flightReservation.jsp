@@ -214,3 +214,15 @@
                                  PreparedStatement pst1 = con.prepareStatement("select * from Flight where FlightID = ?");
                                 pst1.setString(1,FlightID);
                                 ResultSet rs1 = pst1.executeQuery();
+  while(rs1.next()){
+
+                                PreparedStatement pst2 = con.prepareStatement("select Name from Airport where AirportID = ?");
+                                pst2.setString(1,rs1.getString("DepAirport"));
+                                ResultSet rs2 = pst2.executeQuery();
+                                rs2.next();
+
+                                PreparedStatement pst3 = con.prepareStatement("select Name from Airport where AirportID = ?");
+                                pst3.setString(1,rs1.getString("ArrAirport"));
+                                ResultSet rs3 = pst3.executeQuery();
+                                rs3.next();
+                            %>
