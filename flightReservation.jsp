@@ -329,3 +329,24 @@
                                                         </select>
                                                     </div>
                                                 </div>
+ <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <input type="text" name="passport" id="passport" class="form-control bg_input" placeholder="Passport no.*" required="required"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control bg_input" name="name" id="name" placeholder="Full name as per passport*" required="required"/>
+                                                    </div>
+                                                </div>    
+                                            
+                                                <center><h4 style="margin-bottom: 40px">Contact details</h4></center>
+                                            
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="text" name="fname" id="fname" class="form-control bg_input" placeholder="Contact person*" required="required"/>
+                                                </div> 
+                                            </div>
+                                            
+                                            <div class="col-lg-6">
