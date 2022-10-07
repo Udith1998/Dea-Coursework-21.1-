@@ -120,3 +120,8 @@
                         <div class="logo">
                             <a href="index.jsp">
                                 <img src="assets/img/logo.png" alt="logo">
+                                                  </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
