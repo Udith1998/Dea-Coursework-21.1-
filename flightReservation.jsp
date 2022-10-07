@@ -80,3 +80,6 @@
                                         aria-haspopup="true" aria-expanded="false">
                                         <span class="lang-name"></span>
                                     </button>
+                                     <div class="dropdown-menu language-dropdown-menu">
+                                        <a class="dropdown-item" href="#">USD</a>
+                                        <a class="dropdown-item" href="#">LKR</a>
