@@ -33,6 +33,12 @@
     <!-- Fontawesome css -->
     <link rel="stylesheet" href="assets/css/fontawesome.all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+     String FlightID = request.getParameter("FlightID");
+                                String username = (String)session.getAttribute("username");
+                                String fclass = (String)session.getAttribute("fclass");
+                                String passengers = (String)session.getAttribute("passengers");
+                                String departingDate = (String)session.getAttribute("departingDate");
+                                String flightid = (String)session.getAttribute("FlightID");
      <li class="nav-item">
                                     <a href="flightBooking.jsp" class="nav-link">
                                         Flight Booking
