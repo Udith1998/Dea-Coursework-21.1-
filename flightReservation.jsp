@@ -235,3 +235,10 @@
                                                     <h3><%=rs1.getString("DepCity")%></h3>
                                                     <h6><%=rs2.getString("Name")%></h6>
                                                 </div>
+  </div>
+                                            <div class="flight_search_middel">
+                                                <div class="flight_right_arrow1">
+                                                    <img src="assets/img/icon/right_arrow1.png" alt="icon">
+                                                    <h6>Non-stop</h6>
+                                                    <p><%out.println(rs1.getString("AirTime"));%></p>
+                                                </div>
