@@ -204,3 +204,10 @@
                         <div class="flight_search_result_wrapper" id="flight-search-items">
     
                             <% 
+  int passengerCount = 0;
+                                
+                                if (session.getAttribute("passengers") != null) { 
+                                    passengerCount = Integer.parseInt(passengers);
+                                } else { 
+                                    passengerCount = 0; 
+                                }
