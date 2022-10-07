@@ -250,3 +250,4 @@
                                                     <h6>Non-stop</h6>
                                                     <p><%out.println(rs1.getString("AirTime"));%></p>
                                                 </div>
+<div class="flight_search_right">
