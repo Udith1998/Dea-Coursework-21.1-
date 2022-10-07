@@ -133,3 +133,8 @@
                         </a>
  <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav">
+  <li class="nav-item">
+                                    <a href="index.jsp" class="nav-link">
+                                        Home
+                                    </a>
+                                </li>
