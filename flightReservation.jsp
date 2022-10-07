@@ -423,3 +423,10 @@
                         </ul>
                     </div>
                 </div>
+  <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <div class="footer_heading_area">
+                        <h5>Support</h5>
+                    </div>
+                    <div class="footer_link_area">
+                        <ul>
+                            <li><a href="dashboard.html">Account</a></li>
