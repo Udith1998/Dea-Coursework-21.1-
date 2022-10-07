@@ -56,4 +56,4 @@
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PhoenixAirlinesDB","root","");
     %>
-    
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
