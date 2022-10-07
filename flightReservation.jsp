@@ -125,3 +125,9 @@
                     </div>
                 </div>
             </div>
+ <div class="main-navbar">
+                <div class="container">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <a class="navbar-brand" href="index.jsp">
+                            <img src="assets/img/logo.png" alt="logo">
+                        </a>
