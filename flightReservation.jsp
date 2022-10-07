@@ -312,3 +312,20 @@
                                 <center>
                                     <h3 class="heading_theme">Flight Reservation Form</h3>
                                 </center>
+                                 <div class="tour_booking_form_box">
+                                    <form action="flightReservation.jsp" method="post" id="tour_bookking_form_item" name="tour_bookking_form_item">
+                                        <div class="row">
+                                            
+                                                <center><h4 style="margin-bottom: 40px">Passenger 1</h4></center>
+
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <select class="form-control form-select bg_input" name="title" id="title" required="required">
+                                                            <option value="" hidden>Title</option>
+                                                            <option value="Mr">Mr</option>
+                                                            <option value="Mrs">Mrs</option>
+                                                            <option value="Miss">Miss</option>
+                                                            <option value="Ms">Ms</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
