@@ -430,3 +430,90 @@
                     <div class="footer_link_area">
                         <ul>
                             <li><a href="dashboard.html">Account</a></li>
+      </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <div class="footer_heading_area">
+                        <h5>Support</h5>
+                    </div>
+                    <div class="footer_link_area">
+                        <ul>
+                            <li><a href="dashboard.html">Account</a></li>
+                            <li><a href="faq.html">Faq</a></li>
+                            <li><a href="testimonials.html">Legal</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="top-destinations.html"> Affiliate Program</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <div class="footer_heading_area">
+                        <h5>Other Services</h5>
+                    </div>
+                    <div class="footer_link_area">
+                        <ul>
+                            <li><a href="top-destinations-details.html">Community program</a></li>
+                            <li><a href="top-destinations-details.html">Investor Relations</a></li>
+                            <li><a href="flight-search-result.html">Rewards Program</a></li>
+                            <li><a href="room-booking.html">PointsPLUS</a></li>
+                            <li><a href="testimonials.html">Partners</a></li>
+                            <li><a href="hotel-search.html">List My Hotel</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                    <div class="footer_heading_area">
+                        <h5>Top cities</h5>
+                    </div>
+                    <div class="footer_link_area">
+                        <ul>
+                            <li><a href="room-details.html">Chicago</a></li>
+                            <li><a href="hotel-details.html">New York</a></li>
+                            <li><a href="hotel-booking.html">San Francisco</a></li>
+                            <li><a href="tour-search.html">California</a></li>
+                            <li><a href="tour-booking.html">Ohio </a></li>
+                            <li><a href="tour-guides.html">Alaska</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="co-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="copyright_left">
+                        <p>Copyright © 2022 All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="go-top">
+        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    <!-- Meanu js -->
+    <script src="assets/js/jquery.meanmenu.js"></script>
+    <!-- Range js -->
+    <script src="assets/js/nouislider.min.js"></script>
+    <script src="assets/js/wNumb.js"></script>
+    <!-- owl carousel js -->
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <!-- wow.js -->
+    <script src="assets/js/wow.min.js"></script>
+    <!-- Custom js -->
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/add-form.js"></script>
+    <script src="assets/js/form-dropdown.js"></script>
+
+</body>
+
+</html>
