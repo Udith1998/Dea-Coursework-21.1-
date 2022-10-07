@@ -34,3 +34,6 @@
     <link rel="stylesheet" href="assets/css/fontawesome.all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <!-- owl.carousel css -->
+     <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <!-- Rangeslider css -->
+    
