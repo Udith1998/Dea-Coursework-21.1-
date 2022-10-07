@@ -292,4 +292,10 @@
                 </div>
             </div>
         </div>
+                    
+                     <center>
+            <div class="booking_tour_form_submit">
+                <a href="flightBooking.jsp" class="btn btn_theme btn_md">Change flight</a>
+            </div>
+        </center>
         
