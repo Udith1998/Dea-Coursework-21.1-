@@ -283,4 +283,13 @@
                                             <p><%=passengerCount%> Passenger | <%=departingDate%></p>
                                             
                                     <%  }%>
-                                        
+                                           </div>
+                                </div>
+                            <%}%>
+                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
