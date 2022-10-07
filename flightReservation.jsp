@@ -33,6 +33,14 @@
     <!-- Fontawesome css -->
     <link rel="stylesheet" href="assets/css/fontawesome.all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+     <div class="flight_search_destination">
+                                                    <p><%=rs1.getString("ArrTime")%></p>
+                                                    <h3><%=rs1.getString("ArrCity")%></h3>
+                                                    <h6><%=rs3.getString("Name")%></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
      String FlightID = request.getParameter("FlightID");
                                 String username = (String)session.getAttribute("username");
                                 String fclass = (String)session.getAttribute("fclass");
