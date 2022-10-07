@@ -226,3 +226,12 @@
                                 ResultSet rs3 = pst3.executeQuery();
                                 rs3.next();
                             %>
+ <div class="flight_search_items">
+                                    <div class="multi_city_flight_lists">
+                                        <div class="flight_multis_area_wrapper">
+                                            <div class="flight_search_left">
+                                                <div class="flight_search_destination">
+                                                    <p><%=rs1.getString("DepTime")%></p>
+                                                    <h3><%=rs1.getString("DepCity")%></h3>
+                                                    <h6><%=rs2.getString("Name")%></h6>
+                                                </div>
