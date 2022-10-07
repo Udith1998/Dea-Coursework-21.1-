@@ -29,3 +29,6 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!-- animate css -->
     
+ <link rel="stylesheet" href="assets/css/animate.min.css" />
+    <!-- Fontawesome css -->
+    
