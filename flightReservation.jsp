@@ -112,3 +112,11 @@
                 </div>
             </div>
         </div>
+ <!-- Navigation bar -->
+        <div class="navbar-area">
+            <div class="main-responsive-nav">
+                <div class="container">
+                    <div class="main-responsive-menu">
+                        <div class="logo">
+                            <a href="index.jsp">
+                                <img src="assets/img/logo.png" alt="logo">
