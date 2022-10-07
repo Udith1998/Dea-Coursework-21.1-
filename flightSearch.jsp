@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title -->
-    <title>Flight Search - PHOENIX AIRLINES </title>
+    <title>Flights - PHOENIX AIRLINES </title>
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!-- animate css -->
@@ -42,12 +42,6 @@
 </head>
 
 <body>
-    
-    <%
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PhoenixAirlinesDB","root","");
-    %>
-    
     <script>
         $(document).ready(function() {
             $('.js-example-basic-single').select2();
@@ -63,46 +57,24 @@
                     <div class="col-lg-6 col-md-6">
                     </div>
                     
-                    <%if (session == null || session.getAttribute("username") == null){%>
-                    <div class="col-lg-6 col-md-6">
-                        <ul class="topbar-others-options">
-                            <li><a href="login.jsp">Login</a></li>
-                            <li> <a href="signup.jsp">Sign up</a>
-                            </li>
-                            <li>
-                                <div class="dropdown language-option">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <span class="lang-name"></span>
-                                    </button>
-                                    <div class="dropdown-menu language-dropdown-menu">
-                                        <a class="dropdown-item" href="#">USD</a>
-                                        <a class="dropdown-item" href="#">LKR</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                <%}
-                else{%>
-                    <div class="col-lg-6 col-md-6">
-                        <ul class="topbar-others-options">
-                            <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
-                            <li>
-                                <div class="dropdown language-option">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <span class="lang-name"></span>
-                                    </button>
-                                    <div class="dropdown-menu language-dropdown-menu">
-                                        <a class="dropdown-item" href="#">USD</a>
-                                        <a class="dropdown-item" href="#">LKR</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                <%}%>
+                <%  if (session == null || session.getAttribute("username") == null){%>
+                        <div class="col-lg-6 col-md-6">
+                            <ul class="topbar-others-options">
+                                <li><a href="login.jsp">Login</a></li>
+                                <li><a href="signup.jsp">Sign up</a>
+                                </li>
+                            </ul>
+                        </div>
+                <%  }
+                    else{%>
+                        <div class="col-lg-6 col-md-6">
+                            <ul class="topbar-others-options">
+                                <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
+                                <li><a href="logout.jsp">Logout</a></li>
+                            </ul>
+                        </div>
+                    <%}%>
+                
                 </div>
             </div>
         </div>
@@ -114,7 +86,7 @@
                     <div class="main-responsive-menu">
                         <div class="logo">
                             <a href="index.jsp">
-                                <img src="assets/img/logo.png" alt="logo">
+                                <img src="assets/img/logo.png" alt=""/>
                             </a>
                         </div>
                     </div>
@@ -124,7 +96,7 @@
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
                         <a class="navbar-brand" href="index.jsp">
-                            <img src="assets/img/logo.png" alt="logo">
+                            <img src="assets/img/logo.png" alt=""/>
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                             <ul class="navbar-nav">
@@ -136,25 +108,58 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="flightBooking.jsp" class="nav-link">
-                                        Flight Booking
+                                    <a href="flightSearch.jsp" class="nav-link">
+                                        Flights
                                     </a>
                                 </li>
+                                
+                                <%
+                                    Class.forName("com.mysql.jdbc.Driver");
+                                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PhoenixAirlinesDB","root","");
+                                    
+                                    String username = (String)session.getAttribute("username");
+                                    
+                                    PreparedStatement client = con.prepareStatement("select * from Client where Username = ?");
+                                    client.setString(1, username);
+                                    ResultSet clientrs = client.executeQuery();
+                                    boolean found = clientrs.next();
+
+                                    PreparedStatement admin = con.prepareStatement("select * from admin where Username = ?");
+                                    admin.setString(1, username);
+                                    ResultSet adminrs = admin.executeQuery();
+                                    boolean found1 = adminrs.next();
+
+                                    PreparedStatement staff = con.prepareStatement("select * from staff where Username = ?");
+                                    staff.setString(1, username);
+                                    ResultSet staffrs = staff.executeQuery();
+                                    boolean found2 = staffrs.next();
+
+                                    if(found){%>           
+                                        <li class="nav-item">
+                                            <a href="customerDashboard.jsp" class="nav-link">Dashboard</a>
+                                        </li> 
+                                <%  }
+
+                                    if(found1){%>           
+                                        <li class="nav-item">
+                                            <a href="adminDashboard.jsp" class="nav-link">Dashboard</a>
+                                        </li> 
+                                <%  }
+
+                                    if(found2){ %>          
+                                        <li class="nav-item">
+                                            <a href="staffDashboard.jsp" class="nav-link">Dashboard</a>
+                                        </li> 
+                                <%  }   %>
 
                                 <li class="nav-item">
-                                    <a href="customerDashboard.jsp" class="nav-link">
-                                        Dashboard
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="faq.jsp" class="nav-link">
                                         FAQ
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="contactUs.jsp" class="nav-link">
                                         Contact Us
                                     </a>
                                 </li>
@@ -166,25 +171,25 @@
             </div>
         </div>
     </header>
-    
+
     <!-- Common Banner Area -->
     <section id="common_banner">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="common_bannner_text">
-                        <h2>Flight Booking</h2>
+                        <h2>Flights</h2>
                         <ul>
                             <li><a href="index.jsp">Home</a></li>
-                            <li><span><i class="fas fa-circle"></i></span> Flight Booking </li>
+                            <li><span><i class="fas fa-circle"></i></span> Flights </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section> 
-    
-   <!-- Form Area -->
+    </section>
+
+    <!-- Form Area -->
     <section id="theme_search_form_tour" class="fligth_top_search_main_form_wrapper">
         <div class="container">
             <div class="row">
@@ -212,7 +217,7 @@
                                             <div class="col-lg-12">
                                                 <div class="oneway_search_form">
                                                     
-                                                    <form action="flightBooking.jsp" method="post" id="flight-search-form" >
+                                                <form action="flightSearch.jsp" method="post" id="flight-search-form" >
                                                         <div class="row">
                                                             <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                                                                 <div class="flight_Search_boxed">
@@ -273,7 +278,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                             
+                                                            
                                                             <div class="col-lg-new  col-md-6 col-sm-12 col-12">
                                                                 <div class="form_search_date">
                                                                     <div class="flight_Search_boxed date_flex_area">
@@ -293,15 +298,14 @@
                                                                     <div class="flight_Search_boxed date_flex_area">
                                                                         <div class="Journey_date">
                                                                             <p>Passengers</p>
-                                                                            <input type="number" id="passengers" name="passengers" min="1" max="9" placeholder="0" required="required">
-                                                                            
+                                                                                <input type="number" id="passengers" name="passengers" min="1" max="1" placeholder="0" required="required"/>
                                                                             <span></span>
-                                                                            
+  
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            
+                                                                    
                                                             <div class="col-lg-new  col-md-6 col-sm-12 col-12">
                                                                 <div class="form_search_date">
                                                                     <div class="flight_Search_boxed date_flex_area">
@@ -316,7 +320,15 @@
                                                                             
                                                                             <span></span>
                                                                             
-                                                                            <% String fclass = request.getParameter("fclass"); %>
+                                                                        <%  
+                                                                            String fclass = request.getParameter("fclass"); 
+                                                                            String passengers = request.getParameter("passengers");
+                                                                            String departingDate = request.getParameter("departingDate");
+                                                                        
+                                                                            session.setAttribute("fclass",fclass);
+                                                                            session.setAttribute("passengers",passengers);
+                                                                            session.setAttribute("departingDate",departingDate);
+                                                                        %>
                                                                             
                                                                         </div>
                                                                     </div>
@@ -324,11 +336,10 @@
                                                             </div>
                                                         </div>
                                                             <div class="top_form_search_button">
-                                                                <input type="submit" class="btn btn_theme btn_md" value="Search Flights"/>
+                                                                <input type="submit" class="btn btn_theme btn_md" value="Search Flights" />
                                                             </div>
                                                         </div>
-                                                    </form>
-                                                                            
+                                                    </form>                    
                                                 </div>
                                             </div>
                                         </div>
@@ -340,7 +351,7 @@
                 </div>
             </div>
     </section>
-    
+
     <!-- Flight Search Areas -->
     <section id="explore_area" class="section_padding">
         <div class="container">
@@ -386,9 +397,11 @@
                     </div>
                 </div>
             </div>              
+        
                 <div class="row">
-                    <div class="col-lg-12">
-                        <div class="flight_search_result_wrapper" id="flight-search-items">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9">
+                            <div class="flight_search_result_wrapper" id="flight-search-items">
                             <!--flight search items-->
                             <%  
                                 try{    
@@ -399,52 +412,51 @@
                                         while(rs5.next()){
                                 %>
                                             <div class="flight_search_item_wrappper">
-                                            <div class="flight_search_items">
-                                                <div class="multi_city_flight_lists">
-                                                    <div class="flight_multis_area_wrapper">
-                                                        <div class="flight_search_left">
-                                                            <%PreparedStatement pst6 = con.prepareStatement("Select * from Airport where AirportID = '"+rs5.getString("DepAirport")+"'");
-                                                            ResultSet rs6 = pst6.executeQuery();
-                                                            rs6.next();%>
+                                                <div class="flight_search_items">
+                                                    <div class="multi_city_flight_lists">
+                                                        <div class="flight_multis_area_wrapper">
+                                                            <div class="flight_search_left">
+                                                                
+                                                                <%PreparedStatement pst6 = con.prepareStatement("Select * from Airport where AirportID = '"+rs5.getString("DepAirport")+"'");
+                                                                ResultSet rs6 = pst6.executeQuery();
+                                                                rs6.next();%>
 
-                                                            <div class="flight_search_destination">
-                                                                <p><%out.println(rs5.getString("DepTime"));%></p>
-                                                                <h3><%out.println(rs6.getString("City"));%></h3>
-                                                                <h6><%out.println(rs6.getString("Name"));%></h6>
+                                                                <div class="flight_search_destination">
+                                                                    <p><%=rs5.getString("DepTime")%></p>
+                                                                    <h3><%=rs6.getString("City")%></h3>
+                                                                    <h6><%=rs6.getString("Name")%></h6>
+                                                                </div>
+                                                            </div>
+                                                            <div class="flight_search_middel">
+                                                                <div class="flight_right_arrow1">
+                                                                    <img src="assets/img/icon/right_arrow1.png" alt="icon">
+                                                                    <h6>Non-stop</h6>
+                                                                    <p><%=rs5.getString("AirTime")%></p>
+                                                                </div>
+
+                                                                <%PreparedStatement pst7 = con.prepareStatement("Select * from Airport where AirportID = '"+rs5.getString("ArrAirport")+"'");
+                                                                ResultSet rs7 = pst7.executeQuery();
+                                                                rs7.next();%>
+
+                                                                <div class="flight_search_destination">
+                                                                    <p><%=rs5.getString("ArrTime")%></p>
+                                                                    <h3><%=rs7.getString("City")%></h3>
+                                                                    <h6><%=rs7.getString("Name")%></h6>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="flight_search_middel">
-                                                            <div class="flight_right_arrow1">
-                                                                <img src="assets/img/icon/right_arrow1.png" alt="icon">
-                                                                <h6>Non-stop</h6>
-                                                                <p><%out.println(rs5.getString("AirTime"));%></p>
-                                                            </div>
 
-                                                            <%PreparedStatement pst7 = con.prepareStatement("Select * from Airport where AirportID = '"+rs5.getString("ArrAirport")+"'");
-                                                            ResultSet rs7 = pst7.executeQuery();
-                                                            rs7.next();%>
-
-                                                            <div class="flight_search_destination">
-                                                                <p><%out.println(rs5.getString("ArrTime"));%></p>
-                                                                <h3><%out.println(rs7.getString("City"));%></h3>
-                                                                <h6><%out.println(rs7.getString("Name"));%></h6>
-                                                            </div>
-                                                        </div>
                                                     </div>
-
+                                                    <div class="flight_search_right">
+                                                        <p>Flights are available from</p>
+                                                        <h2><%="$"+rs5.getString("AirFare")%></h2>       
+                                                    </div>
                                                 </div>
-                                                <div class="flight_search_right">
-                                                    <p>Flights are available from</p>
-                                                    <h2><%out.println("$"+rs5.getString("AirFare"));%></h2>
-                                                    <a href="flight-booking-submission.html" class="btn btn_theme btn_sm">Book
-                                                        now</a>
-                                                </div>
-                                            </div>
                                             </div>
                                         <%}
                                     }
                                     else{
-                                        PreparedStatement pst5 = con.prepareStatement("select *,round((AirFare*1.9),2) as Business,round((AirFare*4.3),2) as First from flight where DepCity = ? and ArrCity = ?");
+                                        PreparedStatement pst5 = con.prepareStatement("select * from flight where DepCity = ? and ArrCity = ?");
                                         pst5.setString(1, depcity);
                                         pst5.setString(2, arrcity); 
 
@@ -462,9 +474,9 @@
                                                                 rs6.next();%>
 
                                                                 <div class="flight_search_destination">
-                                                                    <p><%out.println(rs5.getString("DepTime"));%></p>
-                                                                    <h3><%out.println(depcity);%></h3>
-                                                                    <h6><%out.println(rs6.getString("Name"));%></h6>
+                                                                    <p><%=rs5.getString("DepTime")%></p>
+                                                                    <h3><%=depcity%></h3>
+                                                                    <h6><%=rs6.getString("Name")%></h6>
                                                                 </div>
                                                             </div>
 
@@ -472,21 +484,20 @@
                                                                 <div class="flight_right_arrow1">
                                                                     <img src="assets/img/icon/right_arrow1.png" alt="icon">
                                                                     <h6>Non-stop</h6>
-                                                                    <p><%out.println(rs5.getString("AirTime"));%></p>
+                                                                    <p><%=rs5.getString("AirTime")%></p>
                                                                 </div>
 
                                                                 <%PreparedStatement pst7 = con.prepareStatement("Select Name from Airport where City = '"+rs5.getString("ArrCity")+"'");
                                                                 ResultSet rs7 = pst7.executeQuery();
                                                                 rs7.next();%>
-                                                                
+
                                                                 <div class="flight_search_destination">
-                                                                    <p><%out.println(rs5.getString("ArrTime"));%></p>
-                                                                    <h3><%out.println(arrcity);%></h3>
-                                                                    <h6><%out.println(rs7.getString("Name"));%></h6>
+                                                                    <p><%=rs5.getString("ArrTime")%></p>
+                                                                    <h3><%=arrcity%></h3>
+                                                                    <h6><%=rs7.getString("Name")%></h6>
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
 
                                                     <%
@@ -494,9 +505,11 @@
                                                     %>
                                                             <div class="flight_search_right">
                                                                 <p>Economy class</p>
-                                                                <h2><%out.println("$"+rs5.getString("AirFare"));%></h2>
-                                                                <a href="flight-booking-submission.html" class="btn btn_theme btn_sm">Book
-                                                                    now</a>
+                                                                <h2><%="$"+rs5.getString("AirFare")%></h2>
+                                                                
+                                                                <form action="flightReservation.jsp" method="post">
+                                                                    <button class="btn btn_theme btn_sm" name="FlightID" id="FlightID" type="submit" value="<%=rs5.getString("FlightID")%>" > Book now </button>
+                                                                </form>
                                                             </div>
                                                     <%
                                                         }
@@ -505,20 +518,25 @@
                                                     %>
                                                             <div class="flight_search_right">
                                                                 <p>Business class</p>
-                                                                <h2><%out.println("$"+rs5.getString("Business"));%></h2>
-                                                                <a href="flight-booking-submission.html" class="btn btn_theme btn_sm">Book
-                                                                    now</a>
+                                                                <h2><%="$"+rs5.getString("Business")%></h2>
+                                                                
+                                                                <form action="flightReservation.jsp" method="post">
+                                                                    <button class="btn btn_theme btn_sm" name="FlightID" id="FlightID" type="submit" value="<%=rs5.getString("FlightID")%>" > Book now </button>
+                                                                </form>
                                                             </div>
                                                     <%  }
                                                         else if(fclass.equals("first")){
                                                     %>
                                                             <div class="flight_search_right">
                                                                 <p>First class</p>
-                                                                <h2><%out.println("$"+rs5.getString("First"));%></h2>
-                                                                <a href="flight-booking-submission.html" class="btn btn_theme btn_sm">Book
-                                                                    now</a>
+                                                                <h2><%="$"+rs5.getString("First")%></h2>
+                                                                
+                                                                <form action="flightReservation.jsp" method="post">
+                                                                    <button class="btn btn_theme btn_sm" name="FlightID" id="FlightID" type="submit" value="<%=rs5.getString("FlightID")%>" > Book now </button>
+                                                                </form>
                                                             </div>
                                                     <%  }   %>
+                                                    
                                                 </div>
                                                 </div>
                                     <%  }        
@@ -526,31 +544,28 @@
                                 }catch(Exception e){ 
                                     out.println(e);
                                 }%>        
-                        </div>
-                        <div class="load_more_flight">
-                            <button class="btn btn_md" id="load-more"><i class="fas fa-spinner"></i> Load more..</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
     </section>
-    
+
     <!-- Footer  -->
     <footer id="footer_area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-18">
                     <div class="footer_heading_area">
                         <h5>Need any help?</h5>
                     </div>
                     <div class="footer_first_area">
                         <div class="footer_inquery_area">
                             <h5>Call 24/7 for any help</h5>
-                            <h3> <a href="tel:+00-123-456-789">+00 123 456 789</a></h3>
+                            <h3> <a href="tel:+00-123-456-789">+94 112 345 345</a></h3>
                         </div>
                         <div class="footer_inquery_area">
                             <h5>Mail to our support team</h5>
-                            <h3> <a href="mailto:support@domain.com">support@domain.com</a></h3>
+                            <h3> <a href="mailto:support@domain.com">support@phoenix.com</a></h3>
                         </div>
                         <div class="footer_inquery_area">
                             <h5>Follow us on</h5>
@@ -563,62 +578,52 @@
                         </div>
                     </div>
                 </div>
-                 <div class="col-lg-2 offset-lg-1 col-md-6 col-sm-6 col-12">
-                    <div class="footer_heading_area">
-                        <h5>Company</h5>
-                    </div>
-                    <div class="footer_link_area">
-                        <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="faqs.html">Rewards</a></li>
-                            <li><a href="terms-service.html">Work with Us</a></li>
-                            <li><a href="tour-guides.html">Meet the Team </a></li>
-                            <li><a href="news.html">Blog</a></li>
-                        </ul>
-                    </div>
-                </div>
                 
                 <div class="col-lg-2 col-md-4 col-sm-6 col-12">
                     <div class="footer_heading_area">
-                        <h5>Other Services</h5>
+                        <h5>Top Sites</h5>
                     </div>
                     <div class="footer_link_area">
                         <ul>
-                            <li><a href="top-destinations-details.html">Community program</a></li>
-                            <li><a href="top-destinations-details.html">Investor Relations</a></li>
-                            <li><a href="flight-search-result.html">Rewards Program</a></li>
-                            <li><a href="room-booking.html">PointsPLUS</a></li>
-                            <li><a href="testimonials.html">Partners</a></li>
-                            <li><a href="hotel-search.html">List My Hotel</a></li>
+                            <li><a href="index.jsp">Home</a></li>
+                            <li><a href="flightSearch.jsp">Flight Booking</a></li>
+                            <li><a href="">Dashboard</a></li>
+                            <li><a href="faq.jsp">FAQ</a></li>
+                            <li><a href="contactUs.jsp">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
+         
                 <div class="col-lg-2 col-md-4 col-sm-6 col-12">
                     <div class="footer_heading_area">
-                        <h5>Top cities</h5>
+                        <h5>Top Destinations</h5>
                     </div>
                     <div class="footer_link_area">
                         <ul>
-                            <li><a href="room-details.html">Chicago</a></li>
-                            <li><a href="hotel-details.html">New York</a></li>
-                            <li><a href="hotel-booking.html">San Francisco</a></li>
-                            <li><a href="tour-search.html">California</a></li>
-                            <li><a href="tour-booking.html">Ohio </a></li>
-                            <li><a href="tour-guides.html">Alaska</a></li>
+                            <li><a href="flightSearch.jsp">London</a></li>
+                            <li><a href="flightSearch.jsp">Sydney</a></li>
+                            <li><a href="flightSearch.jsp">France</a></li>
+                            <li><a href="flightSearch.jsp">Maldives</a></li>
+                            <li><a href="flightSearch.jsp">New York</a></li>
+                            <li><a href="flightSearch.jsp">India</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-     
+    
     <div class="copyright_area">
         <div class="container">
             <div class="row align-items-center">
                 <div class="co-lg-6 col-md-6 col-sm-12 col-12">
                     <div class="copyright_left">
                         <p>Copyright © 2022 All Rights Reserved</p>
+                    </div>
+                </div>
+                <div class="co-lg-6 col-md-6 col-sm-12 col-12">
+                    <div class="copyright_right">
+                        <img src="assets/img/common/cards.png" alt="img">
                     </div>
                 </div>
             </div>
@@ -628,7 +633,7 @@
         <i class="fas fa-chevron-up"></i>
         <i class="fas fa-chevron-up"></i>
     </div>
-    
+
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap js -->
     <script src="assets/js/bootstrap.bundle.js"></script>
@@ -645,7 +650,7 @@
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/add-form.js"></script>
     <script src="assets/js/form-dropdown.js"></script>
- 
-   
+
 </body>
+
 </html>

@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title -->
-    <title>Admin Dashboard - PHOENIX AIRLINES </title>
+    <title>Contact - Andtourtravel </title>
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!-- animate css -->
@@ -36,7 +36,7 @@
 </head>
 
 <body>
-    
+
     <!-- Header Area -->
     <header class="main_header_arae">
         <!-- Top Bar -->
@@ -167,10 +167,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="common_bannner_text">
-                        <h2>Dashboard</h2>
+                        <h2>Contact Us</h2>
                         <ul>
                             <li><a href="index.html">Home</a></li>
-                            <li><span><i class="fas fa-circle"></i></span>Dashboard</li>
+                            <li><span><i class="fas fa-circle"></i></span>Contact Us</li>
                         </ul>
                     </div>
                 </div>
@@ -178,66 +178,94 @@
         </div>
     </section>
 
-    <!-- Dashboard Area -->
-    <section id="dashboard_main_arae" class="section_padding">
+    <!-- Contact Area -->
+    <div style="padding-top: 50px" class="section_heading_center">
+        <h2>Meet our team</h2>
+    </div>
+    <section id="contact_main_arae" class="section_padding">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-2">
-                    <div class="dashboard_sidebar">
-                        <div class="dashboard_sidebar_user">
-                            <img src="assets/img/common/dashboard-user1.png" alt="img">
-                            <h3>Admin</h3>
-                        </div>
-                        <div class="dashboard_menu_area">
-                            <ul>
-                                <li><a href="adminDashboard.jsp"> <i class="fas fa-plane"></i>Flights</a></li>
-                                <li><a href="adminDashboardTickets.jsp"><i class="fas fa-wallet"></i>Tickets</a></li>
-                                <li><a href="adminDashboardStaff.jsp"><i class="fas fa-id-card-alt"></i>Staff Members</a></li>
-                                <li><a href="adminDashboardClient.jsp" class="active"><i class="fas fa-user-circle"></i>Clients</a></li>
+            <div class="our_team">
+                <input type="radio" name="position" /> 
+                <input type="radio" name="position" />
+                <input type="radio" name="position" checked />
+                <input type="radio" name="position" />
+                <input type="radio" name="position" />
+                <input type="radio" name="position" />
 
-                                <li>
-                                    <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-sign-out-alt"></i><a href="adminLogout.jsp"> Logout </a>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                <main id="carousel">
+                    <div class="item">
+                        <img src="https://github.com/Udith1998/web-coursework-21.1-/blob/main/our%20team/MAGHP%20Mallawaarachchi.jpeg?raw=true">
+                        <p>MAGHP Mallawaarachchi<br><span class="sid">23062</span></p>
                     </div>
-                </div>
-                <div class="col-lg-10">
-                    <div class="dashboard_common_table">
-                        <h3>Clients</h3>
-                        <div class="table-responsive-lg table_common_area">
-                            <table class="table">
-                                
-                                <%
-                                    PreparedStatement pst1 = con.prepareStatement("select * from client");
-                                    ResultSet rs1 = pst1.executeQuery();
-                                %>
-                                
-                                    <thead>
-                                        <tr>
-                                            <th>Username</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>NIC</th>
-                                            <th>Mobile No</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%while(rs1.next()){%>
-                                            <tr>
-                                                <td><%="@"+rs1.getString("Username")%></td>
-                                                <td><%=rs1.getString("FirstName")%></td>
-                                                <td><%=rs1.getString("LastName")%></td>
-                                                <td><%=rs1.getString("NIC")%></td>
-                                                <td><%=rs1.getString("MobileNo")%></td>
-                                                <td><%=rs1.getString("Email")%></td>
-                                            </tr>
-                                        <%}%>
-                                    </tbody>
-                            </table>
+
+                    <div class="item">
+                        <img src="assets/img/our team/manthi.jpg">
+                        <p>TGM Seneka<br><span class="sid">22875</span><br></p>
+                    </div>
+
+                    <div class="item">
+                        <img src="assets/img/our team/pramudi.jpg">
+                        <p>MKPN Joanne<br><span class="sid">23084</span></p>
+                    </div>
+
+                    <div class="item">
+                        <img src="assets/img/our team/Chathuranga.jpg">
+                        <p>RMUC Rathnayaka<br><span class="sid">22781</span></p>
+                    </div>
+
+                    <div class="item">
+                        <img src="assets/img/our team/Chamith.jpg">
+                        <p>KPKC Dilshan<br><span class="sid">23450</span></p>
+                    </div>
+
+                    <div class="item">
+                        <img src="assets/img/our team/Malan.jpg">
+                        <p>WMA Ihalagedra<br><span class="sid">23015</span></p>
+                  </div>
+
+                </main>
+            </div>
+            
+            <div class="contact_main_form_area">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="section_heading_center">
+                            <h2>We'd love to hear from you</h2>
+                        </div>
+                        <div class="contact_form">
+                            <form action="!#" id="contact_form_content">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg_input" placeholder="First name*">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg_input" placeholder="Last name*">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control bg_input"
+                                                placeholder="Email address*">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control bg_input" rows="5"
+                                                placeholder="Message"></textarea>
+                                        </div>
+                                    </div>
+                                    <center>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn_theme btn_md">Send message</button>
+                                        </div>
+                                    </div>
+                                    </center>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -323,7 +351,11 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
+    <div class="go-top">
+        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-chevron-up"></i>
+    </div>
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap js -->
@@ -337,6 +369,7 @@
     <!-- Custom js -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/add-form.js"></script>
+
 
 </body>
 

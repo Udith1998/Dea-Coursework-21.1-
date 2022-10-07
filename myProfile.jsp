@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title -->
-    <title>Admin Dashboard - PHOENIX AIRLINES </title>
+    <title>Dashboard - PHOENIX AIRLINES </title>
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!-- animate css -->
@@ -36,6 +36,7 @@
 </head>
 
 <body>
+    
     
     <!-- Header Area -->
     <header class="main_header_arae">
@@ -169,7 +170,7 @@
                     <div class="common_bannner_text">
                         <h2>Dashboard</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.jsp">Home</a></li>
                             <li><span><i class="fas fa-circle"></i></span>Dashboard</li>
                         </ul>
                     </div>
@@ -182,62 +183,108 @@
     <section id="dashboard_main_arae" class="section_padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-4">
                     <div class="dashboard_sidebar">
                         <div class="dashboard_sidebar_user">
                             <img src="assets/img/common/dashboard-user1.png" alt="img">
-                            <h3>Admin</h3>
+                            <h3>
+                                <% String current_user = (String)session.getAttribute("username");
+                                    out.print(current_user); %>
+                            </h3>
+                            <p>
+                                <% 
+                                    PreparedStatement pst = con.prepareStatement("select FirstName,LastName from Client where Username = '"+current_user+"'");
+                                    ResultSet rs = pst.executeQuery();
+                                    
+                                    while(rs.next()){
+                                        out.println(rs.getString("FirstName"));
+                                        out.println(rs.getString("LastName"));
+                                    }  
+                                %>
+                            </p>
                         </div>
                         <div class="dashboard_menu_area">
                             <ul>
-                                <li><a href="adminDashboard.jsp"> <i class="fas fa-plane"></i>Flights</a></li>
-                                <li><a href="adminDashboardTickets.jsp"><i class="fas fa-wallet"></i>Tickets</a></li>
-                                <li><a href="adminDashboardStaff.jsp"><i class="fas fa-id-card-alt"></i>Staff Members</a></li>
-                                <li><a href="adminDashboardClient.jsp" class="active"><i class="fas fa-user-circle"></i>Clients</a></li>
+                                <li><a href="customerDashboard.jsp"> <i class="fas fa-calendar-check""></i>My Bookings</a></li>
+                                <li><a href="myProfile.jsp" class="active"><i class="fas fa-user-circle"></i>My profile</a></li>
 
                                 <li>
                                     <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-sign-out-alt"></i><a href="adminLogout.jsp"> Logout </a>
+                                        <i class="fas fa-sign-out-alt"></i><a href="logout.jsp"> Logout </a>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-10">
+                <div class="col-lg-8">
                     <div class="dashboard_common_table">
-                        <h3>Clients</h3>
-                        <div class="table-responsive-lg table_common_area">
-                            <table class="table">
-                                
-                                <%
-                                    PreparedStatement pst1 = con.prepareStatement("select * from client");
-                                    ResultSet rs1 = pst1.executeQuery();
-                                %>
-                                
-                                    <thead>
-                                        <tr>
-                                            <th>Username</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>NIC</th>
-                                            <th>Mobile No</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <%while(rs1.next()){%>
-                                            <tr>
-                                                <td><%="@"+rs1.getString("Username")%></td>
-                                                <td><%=rs1.getString("FirstName")%></td>
-                                                <td><%=rs1.getString("LastName")%></td>
-                                                <td><%=rs1.getString("NIC")%></td>
-                                                <td><%=rs1.getString("MobileNo")%></td>
-                                                <td><%=rs1.getString("Email")%></td>
-                                            </tr>
-                                        <%}%>
-                                    </tbody>
-                            </table>
+                        <h3>My Profile</h3>
+                        <div class="profile_update_form">
+                            <form action="!#" id="profile_form_area">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        
+                                        <% 
+                                            PreparedStatement pst1 = con.prepareStatement("select * from Client where Username = '"+current_user+"'");
+                                            ResultSet rs1 = pst1.executeQuery();
+                                            rs1.next();
+                                        %>
+                                        
+                                    <div class="form-group">
+                                            <label for="f-name">First name</label>
+                                            <input type="text" class="form-control" id="f-name" placeholder="Your Name" value="<%=rs1.getString("FirstName")%>">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="l-name">Last name</label>
+                                            <input type="text" class="form-control" id="l-name" value="<%=rs1.getString("LastName")%>">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="mail-address">Email address</label>
+                                            <input type="text" class="form-control" id="mail-address" value="<%=rs1.getString("Email")%>">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="mobil-number">Mobile number</label>
+                                            <input type="text" class="form-control" id="mobil-number" value="<%=rs1.getString("MobileNo")%>">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="u-name">Username</label>
+                                            <input type="text" class="form-control" id="u-name" value="<%=rs1.getString("Username")%>">
+                                        </div>
+                                    </div>
+     
+                                    <div class="change_password_input_boxed">
+                                        <h3>Change password</h3>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control"
+                                                        placeholder="Old Password">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control"
+                                                        placeholder="New Password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
+                                    <div class="common_form_submit">
+                                        <button class="btn btn_theme btn_md">Submit Changes</button>
+                                    </div>
+                                        
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -323,7 +370,12 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
+
+    <div class="go-top">
+        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-chevron-up"></i>
+    </div>
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap js -->

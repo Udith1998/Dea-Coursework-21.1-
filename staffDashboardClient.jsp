@@ -169,7 +169,7 @@
                     <div class="common_bannner_text">
                         <h2>Dashboard</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.jsp">Home</a></li>
                             <li><span><i class="fas fa-circle"></i></span>Dashboard</li>
                         </ul>
                     </div>
@@ -186,18 +186,34 @@
                     <div class="dashboard_sidebar">
                         <div class="dashboard_sidebar_user">
                             <img src="assets/img/common/dashboard-user1.png" alt="img">
-                            <h3>Admin</h3>
+                            <h3>
+                                <% 
+                                    String currentMember = (String)session.getAttribute("username");
+                                %>
+                                
+                                <%="@"+currentMember%>
+                                
+                            </h3>
+                            <p>
+                                <% 
+                                    PreparedStatement pst = con.prepareStatement("select * from Staff where Username = ?");
+                                    pst.setString(1,currentMember);
+                                    ResultSet rs = pst.executeQuery();
+                                    rs.next();
+                                %>
+                                <%=rs.getString("FirstName")+" "+rs.getString("LastName")%><br><br>
+                                <%="Grade "+rs.getInt("Grade")%>
+                            </p>
                         </div>
                         <div class="dashboard_menu_area">
                             <ul>
-                                <li><a href="adminDashboard.jsp"> <i class="fas fa-plane"></i>Flights</a></li>
-                                <li><a href="adminDashboardTickets.jsp"><i class="fas fa-wallet"></i>Tickets</a></li>
-                                <li><a href="adminDashboardStaff.jsp"><i class="fas fa-id-card-alt"></i>Staff Members</a></li>
-                                <li><a href="adminDashboardClient.jsp" class="active"><i class="fas fa-user-circle"></i>Clients</a></li>
+                                <li><a href="staffDashboard.jsp"> <i class="fas fa-plane"></i>Flights</a></li>
+                                <li><a href="staffDashboardTickets.jsp"><i class="fas fa-wallet"></i>Tickets</a></li>
+                                <li><a href="staffDashboardClient.jsp" class="active"><i class="fas fa-user-circle"></i>Clients</a></li>
 
                                 <li>
                                     <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-sign-out-alt"></i><a href="adminLogout.jsp"> Logout </a>
+                                        <i class="fas fa-sign-out-alt"></i><a href="staffLogout.jsp"> Logout </a>
                                     </a>
                                 </li>
                             </ul>
@@ -210,7 +226,7 @@
                         <div class="table-responsive-lg table_common_area">
                             <table class="table">
                                 
-                                <%
+                                <%                                   
                                     PreparedStatement pst1 = con.prepareStatement("select * from client");
                                     ResultSet rs1 = pst1.executeQuery();
                                 %>
@@ -223,6 +239,7 @@
                                             <th>NIC</th>
                                             <th>Mobile No</th>
                                             <th>Email</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -234,6 +251,7 @@
                                                 <td><%=rs1.getString("NIC")%></td>
                                                 <td><%=rs1.getString("MobileNo")%></td>
                                                 <td><%=rs1.getString("Email")%></td>
+                                                <td><i class='fas fa-eye'></i></td>
                                             </tr>
                                         <%}%>
                                     </tbody>
@@ -244,7 +262,6 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer id="footer_area">
         <div class="container">
@@ -324,7 +341,6 @@
             </div>
         </div>
     </div>  
-
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap js -->
     <script src="assets/js/bootstrap.bundle.js"></script>

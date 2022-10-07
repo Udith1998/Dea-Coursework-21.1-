@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import = "java.sql.*"%>
+<%@page import = "java.util.*"%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -42,46 +44,23 @@
                     <div class="col-lg-6 col-md-6">
                     </div>
                     
-                    <%if (session == null || session.getAttribute("username") == null){%>
-                    <div class="col-lg-6 col-md-6">
-                        <ul class="topbar-others-options">
-                            <li><a href="login.jsp">Login</a></li>
-                            <li><a href="signup.jsp">Sign up</a>
-                            </li>
-                            <li>
-                                <div class="dropdown language-option">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <span class="lang-name"></span>
-                                    </button>
-                                    <div class="dropdown-menu language-dropdown-menu">
-                                        <a class="dropdown-item" href="#">USD</a>
-                                        <a class="dropdown-item" href="#">LKR</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                <%}
-                else{%>
-                    <div class="col-lg-6 col-md-6">
-                        <ul class="topbar-others-options">
-                            <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
-                            <li>
-                                <div class="dropdown language-option">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
-                                        <span class="lang-name"></span>
-                                    </button>
-                                    <div class="dropdown-menu language-dropdown-menu">
-                                        <a class="dropdown-item" href="#">USD</a>
-                                        <a class="dropdown-item" href="#">LKR</a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                <%}%>
+                <%  if (session == null || session.getAttribute("username") == null){%>
+                        <div class="col-lg-6 col-md-6">
+                            <ul class="topbar-others-options">
+                                <li><a href="login.jsp">Login</a></li>
+                                <li><a href="signup.jsp">Sign up</a>
+                                </li>
+                            </ul>
+                        </div>
+                <%  }
+                    else{%>
+                        <div class="col-lg-6 col-md-6">
+                            <ul class="topbar-others-options">
+                                <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
+                                <li><a href="logout.jsp">Logout</a></li>
+                            </ul>
+                        </div>
+                    <%}%>
                 
                 </div>
             </div>
@@ -116,32 +95,58 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="flightBooking.jsp" class="nav-link">
-                                        Flight Booking
+                                    <a href="flightSearch.jsp" class="nav-link">
+                                        Flights
                                     </a>
                                 </li>
+                                
+                                <%
+                                    Class.forName("com.mysql.jdbc.Driver");
+                                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PhoenixAirlinesDB","root","");
+                                    
+                                    String username = (String)session.getAttribute("username");
+                                    
+                                    PreparedStatement client = con.prepareStatement("select * from Client where Username = ?");
+                                    client.setString(1, username);
+                                    ResultSet clientrs = client.executeQuery();
+                                    boolean found = clientrs.next();
+
+                                    PreparedStatement admin = con.prepareStatement("select * from admin where Username = ?");
+                                    admin.setString(1, username);
+                                    ResultSet adminrs = admin.executeQuery();
+                                    boolean found1 = adminrs.next();
+
+                                    PreparedStatement staff = con.prepareStatement("select * from staff where Username = ?");
+                                    staff.setString(1, username);
+                                    ResultSet staffrs = staff.executeQuery();
+                                    boolean found2 = staffrs.next();
+
+                                    if(found){%>           
+                                        <li class="nav-item">
+                                            <a href="customerDashboard.jsp" class="nav-link">Dashboard</a>
+                                        </li> 
+                                <%  }
+
+                                    if(found1){%>           
+                                        <li class="nav-item">
+                                            <a href="adminDashboard.jsp" class="nav-link">Dashboard</a>
+                                        </li> 
+                                <%  }
+
+                                    if(found2){ %>          
+                                        <li class="nav-item">
+                                            <a href="staffDashboard.jsp" class="nav-link">Dashboard</a>
+                                        </li> 
+                                <%  }   %>
 
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        Ticket Booking
-                                    </a>
-                                </li>
-
-                                     <li class="nav-item">
-                                    <a href="customerDashboard.jsp" class="nav-link">
-                                        Dashboard
-                                    </a>
-                                </li>
-
-
-                                <li class="nav-item">
-                                    <a href="faqs.html" class="nav-link">
+                                    <a href="faq.jsp" class="nav-link">
                                         FAQ
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="contact.html" class="nav-link">
+                                    <a href="contactUs.jsp" class="nav-link">
                                         Contact Us
                                     </a>
                                 </li>
@@ -168,7 +173,7 @@
                                 <h2 class="slider-pararp">The world with us!</h2>
                                 <h4 class="slider-pararp">Find awesome flights,tour and packages</h4>
                                 <div class="home_two_button btn-animation">
-                                    <a href="#" class="btn btn_theme_white btn_md">Know More</a>
+                                    <a href="#about_two_area" class="btn btn_theme_white btn_md">Know More</a>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +191,7 @@
                                 <h2 class="slider-pararp">Every takeoff is optional. Every landing is mandatory.</h2>
                                 <h4 class="slider-pararp">Flying the airplane is more important than radioing your plight to a person on the ground incapable of understanding it.</h4>
                                 <div class="home_two_button btn-animation">
-                                    <a href="#" class="btn btn_theme_white btn_md">Know more</a>
+                                    <a href="#about_two_area" class="btn btn_theme_white btn_md">Know more</a>
                                 </div>
                             </div>
                         </div>
@@ -204,7 +209,7 @@
                                 <h2 class="slider-pararp">Flight by Destination</h2>
                                 <h4 class="slider-pararp">No hidden fees. No hidden charges. No funny business. With us, you’ll always know exactly where your money goes</h4>
                                 <div class="home_two_button btn-animation">
-                                    <a href="#" class="btn btn_theme_white btn_md">Know more</a>
+                                    <a href="#about_two_area" class="btn btn_theme_white btn_md">Know more</a>
                                 </div>
                             </div>
                         </div>
@@ -580,20 +585,20 @@
     <footer id="footer_area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-18">
                     <div class="footer_heading_area">
                         <h5>Need any help?</h5>
                     </div>
                     <div class="footer_first_area">
                         <div class="footer_inquery_area">
                             <h5>Call 24/7 for any help</h5>
-                            <h3 style="text-decoration-color: white;"> <a href="tel:+00-123-456-789">+00 123 456 789</a></h3>
+                            <h3> <a href="tel:+00-123-456-789">+94 112 345 345</a></h3>
                         </div>
-                        <!-- <div class="footer_inquery_area">
+                        <div class="footer_inquery_area">
                             <h5>Mail to our support team</h5>
-                            <h3> <a href="mailto:support@domain.com">support@domain.com</a></h3>
-                        </div> -->
-                        <!-- <div class="footer_inquery_area">
+                            <h3> <a href="mailto:support@domain.com">support@phoenix.com</a></h3>
+                        </div>
+                        <div class="footer_inquery_area">
                             <h5>Follow us on</h5>
                             <ul class="soical_icon_footer">
                                 <li><a href="#!"><i class="fab fa-facebook"></i></a></li>
@@ -601,72 +606,44 @@
                                 <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
                                 <li><a href="#!"><i class="fab fa-linkedin"></i></a></li>
                             </ul>
-                        </div> -->
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-2 offset-lg-1 col-md-6 col-sm-6 col-12">
-                    <div class="footer_heading_area">
-                        <h5>Company</h5>
-                    </div>
-                    <div class="footer_link_area">
-                        <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="testimonials.html">Testimonials</a></li>
-                            <li><a href="faqs.html">FAQ</a></li>
-                        <!--     <li><a href="terms-service.html">Work with Us</a></li> -->
-                            <li><a href="contact.html">Meet the Team </a></li>
-                            <!-- <li><a href="news.html">Blog</a></li> -->
-                        </ul>
-                    </div>
-                </div>
+                
                 <div class="col-lg-2 col-md-4 col-sm-6 col-12">
                     <div class="footer_heading_area">
-                        <h5>Support</h5>
+                        <h5>Top Sites</h5>
                     </div>
                     <div class="footer_link_area">
                         <ul>
-                            <li><a href="dashboard.html">Account</a></li>
-                            <li><a href="faq.html">Faq</a></li>
-                            <!-- <li><a href="testimonials.html">Legal</a></li> -->
-                            <li><a href="contact.html">Contact</a></li>
-                            <!-- <li><a href="top-destinations.html"> Affiliate Program</a></li> -->
-                            <!-- <li><a href="privacy-policy.html">Privacy Policy</a></li> -->
+                            <li><a href="dashboard.html">Home</a></li>
+                            <li><a href="faq.html">Flight Booking</a></li>
+                            <li><a href="contact.html">Dashboard</a></li>
+                            <li><a href="top-destinations.html">FAQ</a></li>
+                            <li><a href="privacy-policy.html">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
-                <!-- <div class="col-lg-2 col-md-4 col-sm-6 col-12">
-                    <div class="footer_heading_area">
-                        <h5>Other Services</h5>
-                    </div>
-                    <div class="footer_link_area">
-                        <ul>
-                            <li><a href="top-destinations-details.html">Community program</a></li>
-                            <li><a href="top-destinations-details.html">Investor Relations</a></li>
-                            <li><a href="flight-search-result.html">Rewards Program</a></li>
-                            <li><a href="room-booking.html">PointsPLUS</a></li>
-                            <li><a href="testimonials.html">Partners</a></li>
-                            <li><a href="hotel-search.html">List My Hotel</a></li>
-                        </ul>
-                    </div>
-                </div> -->
+         
                 <div class="col-lg-2 col-md-4 col-sm-6 col-12">
                     <div class="footer_heading_area">
-                        <h5>Top cities</h5>
+                        <h5>Top Destinations</h5>
                     </div>
                     <div class="footer_link_area">
                         <ul>
-                            <li><a href="room-details.html">Chicago</a></li>
-                            <li><a href="hotel-details.html">New York</a></li>
-                            <li><a href="hotel-booking.html">San Francisco</a></li>
-                            <li><a href="tour-search.html">California</a></li>
-                            <li><a href="tour-booking.html">Ohio </a></li>
-                            <li><a href="tour-guides.html">Alaska</a></li>
+                            <li><a href="flightSearch.jsp">London</a></li>
+                            <li><a href="flightSearch.jsp">Sydney</a></li>
+                            <li><a href="flightSearch.jsp">France</a></li>
+                            <li><a href="flightSearch.jsp">Maldives</a></li>
+                            <li><a href="flightSearch.jsp">New York</a></li>
+                            <li><a href="flightSearch.jsp">India</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+    
     <div class="copyright_area">
         <div class="container">
             <div class="row align-items-center">
