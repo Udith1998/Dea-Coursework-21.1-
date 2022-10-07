@@ -76,3 +76,7 @@
                                  </li>
                             <li>
                                 <div class="dropdown language-option">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                        <span class="lang-name"></span>
+                                    </button>
