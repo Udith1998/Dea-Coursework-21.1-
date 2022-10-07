@@ -44,3 +44,6 @@
     <!-- meanmenu css -->
  <link rel="stylesheet" href="assets/css/meanmenu.css" />
     <!-- Style css -->
+ <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Responsive css -->
+    
