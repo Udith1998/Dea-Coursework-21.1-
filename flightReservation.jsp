@@ -46,4 +46,5 @@
     <!-- Style css -->
  <link rel="stylesheet" href="assets/css/style.css" />
     <!-- Responsive css -->
-    
+     <link rel="stylesheet" href="assets/css/responsive.css" />
+    <!-- Favicon -->
