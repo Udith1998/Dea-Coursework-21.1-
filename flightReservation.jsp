@@ -73,3 +73,6 @@
                         <ul class="topbar-others-options">
                             <li><a href="login.jsp">Login</a></li>
                             <li> <a href="signup.jsp">Sign up</a>
+                                 </li>
+                            <li>
+                                <div class="dropdown language-option">
