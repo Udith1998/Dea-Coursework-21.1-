@@ -154,7 +154,7 @@
                             <h2>Log in</h2>
                         </div>
                         <div class="common_author_form">
-                            <form action="login.jsp" method="post" id="main_author_form">
+                            <form action="LoginServlet" method="post" id="main_author_form">
                                 <div class="form-group">
                                     <input type="text" id="username" name="username" class="form-control" placeholder="Enter username" required="required"/>
                                     <small></small>
@@ -177,66 +177,22 @@
         </div>
     </section>
     
+    <!-- Invalid username or password error -->
     <%
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        try{
-            if(password!=null){
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PhoenixAirlinesDB","root","");
-
-                PreparedStatement pst = con.prepareStatement("select * from Client where Username = ? and Password = ?");
-                pst.setString(1, username);
-                pst.setString(2, password);
-                ResultSet rs = pst.executeQuery();
-                boolean found = rs.next();
-                
-                PreparedStatement pst1 = con.prepareStatement("select * from admin where Username = ? and Password = ?");
-                pst1.setString(1, username);
-                pst1.setString(2, password);
-                ResultSet rs1 = pst1.executeQuery();
-                boolean found1 = rs1.next();
-                
-                PreparedStatement pst2 = con.prepareStatement("select * from staff where Username = ? and Password = ?");
-                pst2.setString(1, username);
-                pst2.setString(2, password);
-                ResultSet rs2 = pst2.executeQuery();
-                boolean found2 = rs2.next();
-
-                if(found){           
-                    session.setAttribute("username",username); 
-                    response.sendRedirect("customerDashboard.jsp"); 
-                }
-                
-                if(found1){           
-                    session.setAttribute("username",username); 
-                    response.sendRedirect("adminDashboard.jsp"); 
-                }
-                
-                if(found2){           
-                    session.setAttribute("username",username); 
-                    response.sendRedirect("staffDashboard.jsp"); 
-                }
-
-                else{           
-                    %>
-                    <script>
-                        swal({
-                            title: "Oops!",
-                            text: "Invalid username or password. please try again.",
-                            icon: "error",
-                            button: "Continue"
-                        });
-                    </script> 
-                    <%
-                }
-            }
-
-        }catch(Exception e){
-            out.println(e);
+        if(session.getAttribute("username")!=null){
+            %>
+                <script>
+                    swal({
+                        title: "Oops!",
+                        text: "Invalid username or password. please try again.",
+                        icon: "error",
+                        button: "Continue"
+                    });
+                </script> 
+            <%
         }
     %>
+    
 
     <!-- Footer -->
     <footer id="footer_area">

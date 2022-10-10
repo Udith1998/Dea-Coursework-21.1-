@@ -157,7 +157,7 @@
                             <h2>Create an account</h2>
                         </div>
                         <div class="common_author_form">
-                            <form action="signup.jsp" name="main_author_form" method="post" id="main_author_form">
+                            <form action="SignupServlet" name="main_author_form" method="post" id="main_author_form">
                                 
                                 <div class="form-group">
                                     <input type="text" name="fname" id="fname" class="form-control" placeholder="Your first name*" required="required"/>
@@ -218,24 +218,9 @@
     </section>
     
     <%
-        String fname = request.getParameter("fname");
-        String lname = request.getParameter("lname");
-        String nic = request.getParameter("nic");
-        String email = request.getParameter("email");
-        String mobile = request.getParameter("mobile");
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");               
 
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PhoenixAirlinesDB","root","");
-
-            PreparedStatement ps1 = con.prepareStatement("select *from Client where username=?");
-            ps1.setString(1, username);
-            ResultSet rs = ps1.executeQuery();
-
-            if(rs.next()){
-                %>
+        if(session.getAttribute("Usernameerror")!=null){
+            %>
                 <script>
                     swal({
                         title: "Oops!",
@@ -244,39 +229,20 @@
                         button: "Continue"
                     });
                 </script> 
-                <%
-            }
+            <%
+        }
 
-            else {
-                PreparedStatement ps = con.prepareStatement("Insert into Client(FirstName,LastName,NIC,Email,MobileNo,Username,Password) values(?,?,?,?,?,?,?)");
-
-                ps.setString(1, fname);
-                ps.setString(2, lname);
-                ps.setString(3, nic);
-                ps.setString(4, email);
-                ps.setString(5, mobile);
-                ps.setString(6, username);
-                ps.setString(7, password);
-
-                int x = ps.executeUpdate();
-
-                if(x>0){
-                    %>
-                    <script>
-                        swal({
-                            title: "Success!",
-                            text: "Your account has been successfully created. Please login...",
-                            icon: "success",
-                            button: "Continue"
-                        }).then(function(){
-                            window.location = "login.jsp";
-                        });
-                    </script>   
-                    <%
-                }
-            }
-
-        }catch(Exception e){
+        if(session.getAttribute("error")!=null){
+            %>
+                <script>
+                    swal({
+                        title: "Oops!",
+                        text: "Something went wrong, please try again.",
+                        icon: "error",
+                        button: "Continue"
+                    });
+                </script> 
+            <%
         }
     %>
     
