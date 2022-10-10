@@ -60,13 +60,6 @@
                             </li>
                         </ul>
                     </div>
-                <%}
-                else{%>
-                    <div class="col-lg-6 col-md-6">
-                        <ul class="topbar-others-options">
-                            <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
-                        </ul>
-                    </div>
                 <%}%>
                 
                 </div>
@@ -189,6 +182,19 @@
                         button: "Continue"
                     });
                 </script> 
+            <%
+        }
+
+        if(session.getAttribute("success")!=null){
+            %>
+                <script>
+                    swal({
+                        title: "Success!",
+                        text: "Your account has been successfully created. Please login...",
+                        icon: "success",
+                        button: "Continue"
+                    });
+                </script>   
             <%
         }
     %>

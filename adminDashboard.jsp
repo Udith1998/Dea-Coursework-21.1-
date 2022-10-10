@@ -59,7 +59,7 @@
                         <div class="col-lg-6 col-md-6">
                             <ul class="topbar-others-options">
                                 <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
-                                <li><a href="logout.jsp">Logout</a></li>
+                                <li><a href="LogoutServlet">Logout</a></li>
                             </ul>
                         </div>
                     <%}%>
@@ -169,7 +169,7 @@
                     <div class="common_bannner_text">
                         <h2>Dashboard</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.jsp">Home</a></li>
                             <li><span><i class="fas fa-circle"></i></span>Dashboard</li>
                         </ul>
                     </div>
@@ -197,7 +197,7 @@
 
                                 <li>
                                     <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-sign-out-alt"></i><a href="adminLogout.jsp"> Logout </a>
+                                        <i class="fas fa-sign-out-alt"></i><a href="LogoutServlet"> Logout </a>
                                     </a>
                                 </li>
                             </ul>

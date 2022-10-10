@@ -60,7 +60,7 @@
                         <div class="col-lg-6 col-md-6">
                             <ul class="topbar-others-options">
                                 <li><span class="username-display"><%out.println("Hello "+session.getAttribute("username")+"!");%></span></li>
-                                <li><a href="logout.jsp">Logout</a></li>
+                                <li><a href="LogoutServlet">Logout</a></li>
                             </ul>
                         </div>
                     <%}%>
@@ -210,7 +210,7 @@
 
                                 <li>
                                     <a href="index.jsp" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-sign-out-alt"></i><a href="logout.jsp"> Logout </a>
+                                        <i class="fas fa-sign-out-alt"></i><a href="LogoutServlet"> Logout </a>
                                     </a>
                                 </li>
                             </ul>
