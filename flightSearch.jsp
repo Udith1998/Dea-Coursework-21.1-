@@ -311,7 +311,7 @@
                                                                     <div class="flight_Search_boxed date_flex_area">
                                                                         <div class="Journey_date">
                                                                             <p>Class</p>
-                                                                            <select class="select-class" name="fclass" id="fclass" required="required">
+                                                                            <select class="select-city" name="fclass" id="fclass" required="required">
                                                                                 <option value="" hidden>Select class</option>
                                                                                 <option value="economy">Economy</option>
                                                                                 <option value="business">Business</option>

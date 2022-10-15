@@ -2,6 +2,7 @@ package newpackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;    
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
@@ -43,6 +46,11 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
                 PrintWriter out = response.getWriter();
                 
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+                LocalDateTime now = LocalDateTime.now();
+                
+                InetAddress IP=InetAddress.getLocalHost();
+                
                 String username=request.getParameter("username");
 		String password=request.getParameter("password");
          
@@ -69,10 +77,16 @@ public class LoginServlet extends HttpServlet {
                     pst2.setString(2, password);
                     ResultSet rs2 = pst2.executeQuery();
                     boolean found2 = rs2.next();
+                    
+                    PreparedStatement ps = con.prepareStatement("insert into login values(?,?,?)");
+                    ps.setString(1,username);
+                    ps.setString(2,dtf.format(now));
+                    ps.setString(3,IP.getHostAddress());
+                    ps.executeUpdate();
 
-                    if(found){           
+                    if(found){
                         session.setAttribute("username",username); 
-                        response.sendRedirect("customerDashboard.jsp"); 
+                        response.sendRedirect("customerDashboard.jsp");
                     }
 
                     if(found1){           
@@ -80,9 +94,15 @@ public class LoginServlet extends HttpServlet {
                         response.sendRedirect("adminDashboard.jsp"); 
                     }
 
-                    if(found2){           
-                        session.setAttribute("username",username); 
-                        response.sendRedirect("staffDashboard.jsp"); 
+                    if(found2){
+                        if(rs2.getString("Status").equals("Pending")){
+                            session.setAttribute("status","Pending");
+                            response.sendRedirect("login.jsp");
+                        }
+                        else{
+                            session.setAttribute("username",username); 
+                            response.sendRedirect("staffDashboard.jsp");
+                        }
                     }
 
                     else{

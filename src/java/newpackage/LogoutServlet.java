@@ -24,21 +24,15 @@ public class LogoutServlet extends HttpServlet {
             out.println("<h1>Servlet LogoutServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        }
-        
-        HttpSession session=request.getSession();
-                
-        session.invalidate();
+        }     
     }
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 HttpSession session=request.getSession();
-
-                if(session.getAttribute("username")==null){
-                    response.sendRedirect("index.jsp");
-                }
+                session.invalidate();
+                response.sendRedirect("index.jsp");
     }
 
     @Override

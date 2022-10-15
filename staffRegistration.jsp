@@ -1,5 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import = "java.sql.*"%>
 <%@page import = "java.util.*"%>
 
@@ -10,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title -->
-    <title>Admin Dashboard - PHOENIX AIRLINES </title>
+    <title>Register(Staff) - Phoenix Airlines </title>
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!-- animate css -->
@@ -20,6 +19,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <!-- owl.carousel css -->
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css" />
+    <!-- Slick css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.min.css" />
+    <!--slick-theme.css-->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css" />
     <!-- Rangeslider css -->
     <link rel="stylesheet" href="assets/css/nouislider.css" />
     <!-- owl.theme.default css -->
@@ -34,10 +37,13 @@
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/rangeslider.css" type="text/css"/>
+    
+    
 </head>
 
 <body>
-    
+     
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
     <!-- Header Area -->
@@ -48,16 +54,15 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6">
                     </div>
-                    
-                <%  if (session == null || session.getAttribute("username") == null){%>
+                    <%if (session == null || session.getAttribute("username") == null){%>
                         <div class="col-lg-6 col-md-6">
                             <ul class="topbar-others-options">
                                 <li><a href="login.jsp">Login</a></li>
-                                <li><a href="signup.jsp">Sign up</a>
+                                <li> <a href="signup.jsp">Sign up</a>
                                 </li>
                             </ul>
                         </div>
-                <%  }
+                    <%}
                     else{%>
                         <div class="col-lg-6 col-md-6">
                             <ul class="topbar-others-options">
@@ -87,7 +92,7 @@
             <div class="main-navbar">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
-                        <a class="navbar-brand" href="index.jsp">
+                        <a class="navbar-brand" href="index.html">
                             <img src="assets/img/logo.png" alt=""/>
                         </a>
                         <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
@@ -104,45 +109,6 @@
                                         Flights
                                     </a>
                                 </li>
-                                
-                                <%
-                                    Class.forName("com.mysql.jdbc.Driver");
-                                    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/PhoenixAirlinesDB","root","");
-                                    
-                                    String username = (String)session.getAttribute("username");
-                                    
-                                    PreparedStatement client = con.prepareStatement("select * from Client where Username = ?");
-                                    client.setString(1, username);
-                                    ResultSet clientrs = client.executeQuery();
-                                    boolean found = clientrs.next();
-
-                                    PreparedStatement admin = con.prepareStatement("select * from admin where Username = ?");
-                                    admin.setString(1, username);
-                                    ResultSet adminrs = admin.executeQuery();
-                                    boolean found1 = adminrs.next();
-
-                                    PreparedStatement staff = con.prepareStatement("select * from staff where Username = ?");
-                                    staff.setString(1, username);
-                                    ResultSet staffrs = staff.executeQuery();
-                                    boolean found2 = staffrs.next();
-
-                                    if(found){%>           
-                                        <li class="nav-item">
-                                            <a href="customerDashboard.jsp" class="nav-link">Dashboard</a>
-                                        </li> 
-                                <%  }
-
-                                    if(found1){%>           
-                                        <li class="nav-item">
-                                            <a href="adminDashboard.jsp" class="nav-link">Dashboard</a>
-                                        </li> 
-                                <%  }
-
-                                    if(found2){ %>          
-                                        <li class="nav-item">
-                                            <a href="staffDashboard.jsp" class="nav-link">Dashboard</a>
-                                        </li> 
-                                <%  }   %>
 
                                 <li class="nav-item">
                                     <a href="faq.jsp" class="nav-link">
@@ -170,10 +136,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="common_bannner_text">
-                        <h2>Dashboard</h2>
+                        <h2>Sign Up</h2>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><span><i class="fas fa-circle"></i></span>Dashboard</li>
+                            <li><a href="index.jsp">Home</a></li>
+                            <li><span><i class="fas fa-circle"></i></span> Sign Up</li>
                         </ul>
                     </div>
                 </div>
@@ -181,90 +147,110 @@
         </div>
     </section>
 
-    <!-- Dashboard Area -->
-    <section id="dashboard_main_arae" class="section_padding">
+    <!--  Common Author Area -->
+    <section id="common_author_area" class="section_padding">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
-                    <div class="dashboard_sidebar">
-                        <div class="dashboard_sidebar_user">
-                            <img src="assets/img/common/dashboard-user1.png" alt="img">
-                            <h3>Admin</h3>
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="common_author_boxed">
+                        <div class="common_author_heading">
+                            <h2>Create an account</h2>
                         </div>
-                        <div class="dashboard_menu_area">
-                            <ul>
-                                <li><a href="adminDashboard.jsp"> <i class="fas fa-plane"></i>Flights</a></li>
-                                <li><a href="adminDashboardTickets.jsp"><i class="fas fa-wallet"></i>Tickets</a></li>
-                                <li><a href="adminDashboardStaff.jsp" class="active"><i class="fas fa-id-card-alt"></i>Staff Members</a></li>
-                                <li><a href="adminDashboardClient.jsp"><i class="fas fa-user-circle"></i>Clients</a></li>
+                        <div class="common_author_form">
+                            <form action="StaffRegistrationServlet" name="main_author_form" method="post" id="main_author_form">
+                                
+                                <div class="form-group">
+                                    <input type="text" name="fname" id="fname" class="form-control" placeholder="Your first name*" required="required"/>
+                                    <small></small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your last name*" name="lname" id="lname" required="required" />
+                                    <small></small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="email" class="form-control"
+                                        placeholder="your email address*" name="email" id="email" required="required"/>
+                                    <small></small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Mobile number*" name="mobile" id="mobile"/>
+                                    <small></small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Username*" name="username" id="username" required="required"/>
+                                    <small></small>
+                                </div>
 
-                                <li>
-                                    <a href="#!" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-sign-out-alt"></i><a href="LogoutServlet"> Logout </a>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-10">
-                    <div class="dashboard_common_table">
-                        <h3>Staff Members</h3>
-                        <div class="table-responsive-lg table_common_area">
-                            <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Staff ID</th>
-                                            <th>Grade</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Email</th>
-                                            <th>Mobile No</th>
-                                            <th>Username</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach var="staff" items="${users}">
-                                            <tr>
-                                                <td>SID_<c:out value="${staff.id}" /></td>
-                                                <td><c:out value="${staff.grade}" /></td>
-                                                <td><c:out value="${staff.Fname}" /></td>
-                                                <td><c:out value="${staff.Lname}" /></td>
-                                                <td><c:out value="${staff.email}" /></td>
-                                                <td><c:out value="${staff.mobile}" /></td>
-                                                <td><c:out value="${staff.uname}" /></td>
-                                                
-                                                <c:if test="${staff.status=='Pending'}">                                                
-                                                    <td>
-                                                        <form action="" method="post">
-                                                            <button class="btn btn-link" name="status" id="status" type="submit" value="${staff.id}" onClick="getApproval()">Approve</button>
-                                                        </form>
-                                                    </td>
-                                                    
-                                                    <script>
-                                                        function getApproval(){        
-                                                        <%  String status = request.getParameter("status");
-                                                            PreparedStatement pst2 = con.prepareStatement("update staff set Status='Approved' where ID=?");
-                                                            pst2.setString(1, status);
+                                <div class="form-group">
+                                    <select class="form-control form-select bg_input" name="grade" id="grade" required="required">
+                                        <option value="" hidden>Grade</option>
+                                        <option value=1>Grade 1</option>
+                                        <option value=2>Grade 2</option>
+                                    </select>
+                                </div>
 
-                                                            pst2.executeUpdate();%>
-                                                    </script>
-                                                </c:if>
-                                                    
-                                                <c:if test="${staff.status=='Approved'}">
-                                                    <td style="color: green">Approved</td>
-                                                </c:if>
-                                            </tr>
-                                        </c:forEach>
-                                    </tbody>
-                            </table>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Password*" name="password" id="password" required="required"/>
+                                    <small></small>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="password" class="form-control" placeholder="Re-enter your password*" name="confirm-password" id="confirm-password" required="required"/>
+                                    <small></small>
+                                </div>
+                                
+                                <div class="common_form_submit">
+                                    <input type="submit" class="btn btn_theme btn_md" value="Create Account"/>
+                                </div>
+                                
+                                <div class="have_acount_area other_author_option">
+                                    <div class="line_or">
+                                    </div>
+                                    <p>Already have an account? <a href="login.jsp">Log in now</a></p>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+    <%
+
+        if(session.getAttribute("Usernameerror")!=null){
+            %>
+                <script>
+                    swal({
+                        title: "Oops!",
+                        text: "This username is already taken.",
+                        icon: "error",
+                        button: "Continue"
+                    });
+                </script> 
+            <%
+        }
+
+        if(session.getAttribute("error")!=null){
+            %>
+                <script>
+                    swal({
+                        title: "Oops!",
+                        text: "Something went wrong, please try again.",
+                        icon: "error",
+                        button: "Continue"
+                    });
+                </script> 
+            <%
+        }
+    %>
+    
+   
+
     <!-- Footer -->
     <footer id="footer_area">
         <div class="container">
@@ -300,11 +286,11 @@
                     </div>
                     <div class="footer_link_area">
                         <ul>
-                            <li><a href="index.jsp">Home</a></li>
-                            <li><a href="flightSearch.jsp">Flight Booking</a></li>
-                            <li><a href="">Dashboard</a></li>
-                            <li><a href="faq.jsp">FAQ</a></li>
-                            <li><a href="contactUs.jsp">Contact Us</a></li>
+                            <li><a href="dashboard.html">Home</a></li>
+                            <li><a href="faq.html">Flight Booking</a></li>
+                            <li><a href="contact.html">Dashboard</a></li>
+                            <li><a href="top-destinations.html">FAQ</a></li>
+                            <li><a href="privacy-policy.html">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -343,7 +329,14 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
+
+    <div class="go-top">
+        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap js -->
     <script src="assets/js/bootstrap.bundle.js"></script>
@@ -356,7 +349,8 @@
     <!-- Custom js -->
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/add-form.js"></script>
-
+    <script src="assets/js/signup.js" type="text/javascript"></script>
+    
 </body>
 
 </html>

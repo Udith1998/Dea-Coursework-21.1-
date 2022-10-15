@@ -170,7 +170,7 @@
         </div>
     </section>
     
-    <!-- Invalid username or password error -->
+    <!-- success and error messages -->
     <%
         if(session.getAttribute("username")!=null){
             %>
@@ -193,6 +193,19 @@
                         text: "Your account has been successfully created. Please login...",
                         icon: "success",
                         button: "Continue"
+                    });
+                </script>   
+            <%
+        }
+
+        if(session.getAttribute("status")!=null){
+            %>
+                <script>
+                    swal({
+                        title: "Oops!",
+                        text: "Your account is still under review!",
+                        icon: "error",
+                        button: "OK"
                     });
                 </script>   
             <%

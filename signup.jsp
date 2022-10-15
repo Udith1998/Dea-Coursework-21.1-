@@ -208,6 +208,7 @@
                                     <div class="line_or">
                                     </div>
                                     <p>Already have an account? <a href="login.jsp">Log in now</a></p>
+                                    <p>Looking for staff registration? <a href="staffRegistration.jsp">Click here</a></p>
                                 </div>
                             </form>
                         </div>
